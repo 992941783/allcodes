@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript" src="../../库/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				$("div").append("<h2>新元素</h2>");		/*添加到节点内最后*/
+				$("<h2>新元素</h2>").appendTo("div");	/*添加到节点内最后*/
+
+				$("div").prepend("<h3>新元素2</h3>");	/*添加到节点内最前*/
+				$("<h3>新元素2</h3>").prependTo("div");	/*添加到节点内最前*/
+
+				$("div").after("<a href='#'>hello</a>");	/*添加到节点后*/
+				$("<a href='#'>hello1</a>").insertAfter("div");	/*添加到节点后*/
+				
+				$("div").before("<a href='#'>world</a>");	/*添加到节点前*/
+				$("<a href='#'>world1</a>").insertBefore("div");	/*添加到节点前*/
+			}
+		</script>
+		<style type="text/css">
+			div {
+				width:400px;
+				height:400px;
+				background-color: #f00;
+			}
+		</style>
+	</head>
+	<body>
+		<div><h1>h1</h1></div>
+	</body>
+</html>

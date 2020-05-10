@@ -1,0 +1,9 @@
+// 格式化函数
+var format = function(num,digit){
+  var digit = digit || 2;
+  var num = parseFloat(num)
+  return num.toFixed(digit)
+}
+module.exports = {
+  format:format
+}

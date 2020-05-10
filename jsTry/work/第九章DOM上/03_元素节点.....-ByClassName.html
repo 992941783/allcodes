@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+			// window.onload = function(){
+				// var a1 = document.getElementsByClassName("1");
+				// alert(a1.length);
+/*				var a2 = document.getElementById("2");
+				var a3 = a2.getElementsByClassName("1");
+				alert(a3.length);*/
+/*				var b1 = document.getElementById("2");
+				var b2 = elementsByClassName(b1, "zx1");
+				for(var i = 0; i < b2.length; i++){
+				alert(b2[i].innerHTML);
+				// alert(1);
+*/
+				// }
+			// }
+			function elementsByClassName(pem, classer){
+				var lis = [];
+				var a1 = pem.getElementsByTagName("*");
+				for(var i = 0; i < a1.length; i++){				
+					if(a1[i].className == classer){
+						lis.push(a1[i]);
+					}
+				}
+					return lis;
+			}	
+
+
+/*			function li2(num1, num2){
+				var lis = [];
+				var a1 = num1.getElementsByTagName("*");
+				for(var i = 0; i < a1.length; i++){
+					if(a1[i].className == num2){
+						lis.push(a1[i]);
+					}
+				}
+				return lis;
+			}*/
+			window.onload = function(){
+				var a1 = document.getElementById("2");
+				var a2 = elementsByClassName(a1, "zx1");
+				for(var i = 0; i < a2.length; i++){
+					alert(a2[i].className);
+				} 
+			}
+
+		</script>
+	</head>
+	<body>
+		<div name = "zx1">11</div>
+		<span name = "zx1">22</span>
+		<a href="" name = "zx1">33</a>
+		<span id = "2">
+			<input type="text" class = "zx1">
+			<input type="text" class = "zx1">
+			<input type="text" class = "zx1">
+			<input type="text" class = "zx1">
+		</span>
+	</body>
+</html>

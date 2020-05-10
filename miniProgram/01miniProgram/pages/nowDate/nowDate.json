@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "test":"/components/01test/01test",
+    "props":"/components/props/props",
+    "trigger":"/components/trigger/trigger",
+    "tab-control":"/components/tab-control/tab-control"
+  }
+}

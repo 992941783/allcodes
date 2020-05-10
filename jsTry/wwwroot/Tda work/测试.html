@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {margin:0; padding:0}
+        .box ul li {list-style:none}
+        .box {width:600px; height:600px; poaition:raletive; margin:0 auto; perspective:600px}
+        .box ul {width:200px; height:200px; position:absolute; left:0; right:0; top:0; bottom:0; margin:auto; transform-style:preserve-3d; animation:aa 5s Infinite alternate}
+        @keyframes aa {
+        0% {transform:rotateX(360deg) rotateY(360deg)}
+        25% {left:200px; top:0; transform:rotateX(360deg) rotateY(360deg) }
+        50% {left:200px; top:200px; transform:rotateX(360deg) rotateY(360deg))}
+        75% {top:200px; transform:rotateX(360deg) rotateY(360deg)}
+        100% {}
+        }
+        .box ul li {width:200px; height:200px; text-align:center; line-height:200px; position:absolute; font-size:48px;}
+        .box ul li:nth-child(1) {width:200px; height:200px; background:rgba(255,0,0,.5); transform:translateY(-100px) rotateX(90deg)}
+        .box ul li:nth-child(2) {width:200px; height:200px; background:rgba(255,255,0,.5); transform:translateY(100px) rotateX(90deg)}
+        .box ul li:nth-child(3) {width:200px; height:200px; background:rgba(0,0,255,.5); transform:translateX(-100px) rotateY(-90deg)}
+        .box ul li:nth-child(4) {width:200px; height:200px; background:rgba(255,0,255,.5); transform:translateX(100px) rotateY(90deg)}
+        .box ul li:nth-child(5) {width:200px; height:200px; background:rgba(0,255,255,.5); transform:translateZ(100px)}
+        .box ul li:nth-child(6) {width:200px; height:200px; background:rgba(0,255,0,.5); transform:translateZ(-100px) rotateY(180deg)}
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li >上</li>
+            <li>下</li>
+            <li>左</li>
+            <li>右</li>
+            <li>前</li>
+            <li>后</li>
+        </ul>
+    </div>
+</body>
+</html>

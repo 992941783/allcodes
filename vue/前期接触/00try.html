@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            .red{
+                color:red
+            }
+            .blue{
+                color:blue
+            }
+            .a00 {
+                font-size: 20px;  
+            }
+            .a01{
+                color:red;
+            }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            window.onload = function(){
+                var vm = new Vue({
+                    el:'#test',
+                    data:{
+                        mess:'ok',
+                        html:'<span>hello</span>',
+                        color:'red',
+                        url:'https://www.baidu.com',
+                        fi:true,
+                        number:10,
+                        isa00:true,
+                        isa01:true,
+                        isb00:true,
+                        a01:'a01',
+                        oif:true,
+                        oshow:true,
+                        list:[
+                            {mess:'a'},
+                            {mess:'b'}
+                        ],
+                        list1:['a','b'],
+                        object:{
+                            o1:'o1',
+                            o2:'o2',
+                            o3:'o3'
+                        },
+                        index:0,
+                        text1:'',
+                        testList:[1,2,3]
+                    },
+                    methods:{
+                        button1:()=>{
+                            alert('button1')
+                        },
+                        button2:()=>{
+                            alert('button2')
+                        },
+                        div1:()=>{
+                            console.log('outer')
+                        },
+                        div2:()=>{
+                            console.log('inner')
+                        },
+                        alert1:()=>{
+                            alert('hello')
+                        }
+                    }
+                })
+                document.getElementsByTagName('p')[1].onclick = function(){
+                    vm.color = vm.color=='red' ? vm.color='blue' : vm.color='red'
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="test">
+            {{mess}}<!-- 插值 -->
+            <p v-html='html'></p><!-- 插html标签 -->
+            <p v-bind:class='color'>点击切换颜色</p><!-- 绑定标签属性 -->
+            <p>{{number + 1}}</p><!-- js代码 -->
+            <a v-bind:href='url'>...</a><!-- 绑定标签属性 -->
+            <p v-if='fi'>test...hell</p><!-- 真渲染 假不渲染 -->
+            <button @click='button1'>按下弹出button1</button><!-- 绑定事件 -->
+            <button @click='button2'>按下弹出button2</button><!-- 绑定事件 -->
+            <div @click='div1'>
+                <div @click.stop='div2'>dkjf</div><!-- 事件穿透时，.stop执行完此事件就停止 -->
+            </div>
+            <p v-bind:class="[isa00 ? 'a00' : '',a01]">绑定class</p><!-- 绑定class -->
+            <p v-bind:style="[{color:isb00 ? 'red' : '',fontSize:'40px'}]">绑定style</p><!-- 绑定style -->
+            <p v-if='oif'>条件渲染</p><!-- 条件渲染 渲染或不渲染-->
+            <p v-show='oshow'>条件show渲染</p><!-- 条件渲染  都渲染，隐藏或不隐藏-->
+            <p v-for='value ,index in list1'>{{index}} {{value}}</p><!-- 列表渲染 -->
+            <p v-for='value ,key in object'>{{key}}:{{value}}</p><!-- 列表渲染 -->
+            <button v-on:click='index+=1'>{{index}}</button><!-- 事件绑定 -->
+            <button v-on:click='alert1'>弹出hello</button><!-- 事件绑定 -->
+            <input type="text" v-model='text1' placeholder='密码'>
+            <p>{{text1}}</p>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+			// var ob1 = {};
+			// ob1.name = "hello";
+			// ob1.num = 7;
+			// ob1.fo1 = function(){
+			// 	alert("hello");
+			// }
+			// // alert(ob1.fun1);
+			// ob1.fo1();//调用对象方法
+
+			//日期对象
+/*			function dat(){
+				var dat1 = new Date();
+				var year = dat1.getFullYear();
+				var month = dat1.getMonth() + 1;
+				var date = dat1.getDate();
+				var week = dat1.getDay();
+			 	if(week == 0){
+					week = "日";
+				}
+				var hour = dat1.getHours();
+				var min = dat1.getMinutes();
+				var sec = dat1.getSeconds();
+				return year + "年" + month + "月" + date + "日" + "星期" + week + " " + hour + "时" + min + "分" + sec + "秒";
+			}
+			alert(dat());*/
+			//定时器
+			// var con = 0;
+			// setInterval(function(){
+			// 	con++;
+			// 	document.write(con + "<br />");
+			// }, 1000)
+
+			//秒表
+			function bd(id){
+				return document.getElementById(id);
+			}
+			function num(nu){
+				if(nu < 10){
+					return "0" + nu;
+				}else{
+					return nu;
+				}
+			}
+			var con = 0,timer = 0;
+			window.onload = function(){
+				bd("bt_1").onclick = function(){
+					timer = setInterval(function(){
+						con++;
+						bd("sp_3").innerHTML = num(con % 60);
+						bd("sp_2").innerHTML = num(parseInt(con / 60) % 60);
+						bd("sp_3").innerHTML = num(parse(con / 3600));
+
+					}, 1000);
+				}
+				bd("bt_2").onclick = function(){
+					clearInterval(timer);
+				}
+				bd("bt_3").onclick = function(){
+					clearInterval(timer);
+					bd("sp_3").innerHTML = "00";
+					bd("sp_2").innerHTML = "00";
+					bd("sp_3").innerHTML = "00";
+				}
+			}
+
+		</script>
+	</head>
+	<body>
+		<div>
+			<div>
+				<span id = "sp_1">00</span>:
+				<span id = "sp_2">00</span>:
+				<span id = "sp_3">00</span>
+			</div>
+			<input type = "button" id = "bt_1" value = "开始">
+			<input type = "button" id = "bt_2" value = "暂停">
+			<input type = "button" id = "bt_3" value = "结束">
+		</div>
+	</body>
+</html>
+
+
+
+

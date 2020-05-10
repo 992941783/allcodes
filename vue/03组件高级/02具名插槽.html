@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='app'>
+    <a1>
+      <button slot="left">按钮</button>
+      <span slot='center'>搜索看看</span>
+      <span slot='left'>分类</span>
+    </a1>
+  </div>
+
+  <template id='a1'>
+    <div>
+      <slot name="left">左</slot> 
+      <slot name="center">中</slot>
+      <slot name="right">右</slot>
+    </div>
+  </template>
+  <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+
+      },
+      methods: {
+
+      },
+      computed: {
+
+      },
+      filters: {
+
+      },
+      components:{
+        a1:{
+          template:'#a1'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

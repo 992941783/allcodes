@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        
+        <link rel="stylesheet" href="./index.css">
+    </head>
+    <body>
+        <div id='app'>
+            <header id='header'>
+                <h1>天知道</h1>
+                <input id='text' type="text" @keyup.enter='getData()' v-model='text00'>
+                <div><!-- 热门城市 -->
+                    <a href="#" v-on:click='getData2("郑州")'>郑州</a>
+                    <a href="#" v-on:click='getData2("广州")'>广州</a>
+                    <a href="#" v-on:click='getData2("北京")'>北京</a>
+                    <a href="#" v-on:click='getData2("上海")'>上海</a>     
+                </div>
+            </header>
+            <main id="main"><!-- 数据渲染 -->
+                <ul>
+                    <li v-for='el in list00'>
+                        <h1>{{el.type}}</h2><!-- 类型 -->
+                        <p>{{el.low}} - {{el.high}}</p><!-- 温度范围 -->
+                        <p>{{el.date}}</p><!-- 日期 -->
+                    </li>
+                </ul>
+            </main>
+            <footer id="footer"></footer>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./index.js"></script>
+</html>

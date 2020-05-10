@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+		/*switch语句：			
+			var fat = 60;
+			var tall = 1.7;
+			var bor = 18.5;
+			switch(bor){
+				case 18.5:
+					alert("过轻");
+				break;
+				case >=18.5&&<24.99:
+					alert("正常");
+				break;
+				case >=25&&<28:
+					alert("过重");
+				break;
+				case >=28&&<32:
+					alert("肥胖");
+				break;
+				case >=32:
+					alert("非常肥胖");
+				break;
+				default:
+				alert("error")
+				break;
+			}}
+		三目运算符：
+   			alert(2) 只能是具体常量*/
+	/*		var num1 = 2;
+			var num2 = 1;
+			var max = num1>num2 ? num1 : num2;		//三目运算符，表达式一为true时执行表达式二，为false时执行表达式三
+			alert("最大数是"+max)*/
+	//练习题 
+		//男士体重=身高-100±3
+		//女士体重=身高-110±3
+			var hight = 170;
+			var weight = 70;
+			var sex = "男";
+			var bor = sex = "男" ? hight-100 : hight-110;
+			var bor_all = weight - bor;
+			if(sex = "男"){		/*判断，是否为男的*/
+				if(bor_all > 3){	/*如果体重超出3*/
+					alert("你已经超重");		/*输出xxx*/
+				}else if (bor_all < -3){	/*如果体重小于-3*/
+					alert("你营养不良");		/*输出xxx*/
+				}else {		/*其他的*/
+					alert("健康");	/*输出xxx*/
+				}
+			}else if(sex = "女"){	/*判断，是否为女的*/
+				if(bor_all > 3){	/*如果体重超出3*/
+					alert("你已经超重");		/*输出xxx*/
+				}else if (bor_all < -3){	/*如果体重小于-3*/
+					alert("你营养不良");		/*输出xxx*/
+				}else {		/*其他的*/
+					alert("健康");	/*输出xxx*/
+				}
+			}
+		</script>
+
+	</head>
+	<body>
+		
+	</body>
+</html>

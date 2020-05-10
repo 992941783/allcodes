@@ -1,0 +1,17 @@
+/* components/tab-control/tab-control.wxss */
+.tab-controls{
+  display:flex;
+  height:98rpx;
+  line-height: 98rpx;
+  background: red;
+  position:sticky;
+  top:0;
+  z-index: 999;
+}
+.tab-control{
+  flex:1;
+  text-align: center;
+}
+.itemStyle{
+  border-bottom:2px solid black
+}

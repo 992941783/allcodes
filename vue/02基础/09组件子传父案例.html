@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=vue, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id='app'>
+        <h1>{{a}}</h1>
+        <a1 @addclick='add' @jianclick='jian'></a1>
+    </div>
+    
+    <template id='a1'>
+        <div>
+            <button @click='add'>+</button>
+            <button @click='jian'>-</button>
+        </div>
+    </template>
+    
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                a:0
+            },
+            methods: {
+                add(){
+                    this.a++
+                },
+                jian(){
+                    this.a--
+                }
+            },
+            computed:{
+    
+            },
+            filters:{
+    
+            },
+            components:{
+                a1:{
+                    template:'#a1',
+                    methods:{
+                        add(){
+                            this.$emit('addclick',)
+                        },
+                        jian(){
+                            this.$emit('jianclick',)
+                        }
+                    }
+                }
+            }
+        })
+    </script> -->
+
+
+    <div id='app'>
+        <a1></a1>
+    </div>
+    
+    <template id='a1'>
+        <div>
+            <h1>{{a}}</h1>
+            <button @click='add'>+</button>
+            <button @click='jian'>-</button>
+        </div>
+    </template>
+    
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+    
+            },
+            methods: {
+    
+            },
+            computed:{
+    
+            },
+            filters:{
+    
+            },
+            components:{
+                a1:{
+                    template:'#a1',
+                    data(){
+                        return {
+                            a:0,
+                        }
+                    },
+                    methods:{
+                        add(){
+                            this.a++
+                        },
+                        jian(){
+                            this.a--
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

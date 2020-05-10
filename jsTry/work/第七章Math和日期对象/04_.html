@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+		//定时器
+			// var i = 0;		
+			// window.onload = function(){
+			// 	var oBtn = document.getElementById("btn");
+			// 	oBtn.onclick = function(){
+			// 		var tim = setInterval(function(){
+						
+			// 			document.write(i++ + "<br />");
+			// 			if(i == 5){
+			// 				clearInterval(tim);
+			// 			}
+			// 		},1000);
+			// 	}
+			// }
+
+			
+			// 在页面加载完成后执行
+			// window.onload = function(){
+			// 	//绑定按钮
+			// 	var bt1 = document.getElementById("btn");
+			// 	//点击按钮时执行的代码
+			// 	btn.onclick = function(){
+			// 		//计时器
+					var tim = setInterval(function a1(){
+						//间隔时间所执行的函数代码
+						document.write("hello" + "<br />");
+						// var d = new Date();
+						// var min = d.getMinutes();
+						// if(min == 35){
+						// 	clearInterval(tim);
+						// }
+						//间隔时间（ms/毫秒）
+					},1000);
+				}
+			}
+
+			//innerHTML 获取标签内所有内容
+			// window.onload = function(){
+			// 	var oBtn2 = document.getElementById("btn2");
+			// 	var Odiv = document.getElementById("o");
+			// 	oBtn2.onclick = function(){
+			// 		alert(1);
+			// 	}
+			// }
+			window.onload = function(){
+				var oBtn2 = document.getElementById("btn2");
+				OBtn2.onclick = function(){
+					alert(1);
+				}
+			}
+						
+		</script>
+	</head>
+	<body>
+		<!-- <input type = "button" id = "btn" value = "按钮"> -->
+		
+		<input type = "button" id = "btn2" value = "按钮">
+	</body>
+</html>

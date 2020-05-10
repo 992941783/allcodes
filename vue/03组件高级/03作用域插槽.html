@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='app'>
+    <a1></a1>
+    <a1>
+      <template v-slot='list'>
+        <span>{{list.data.join(' - ')}}</span>
+      </template>
+    </a1>
+  </div>
+
+  <template id='a1'>
+    <div>
+      <slot :data='list'>
+        <ul>
+          <li v-for='item in list'>{{item}}</li>
+        </ul>
+      </slot>
+    </div>
+  </template>
+  <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+
+      },
+      methods: {
+
+      },
+      computed: {
+
+      },
+      filters: {
+
+      },
+      components:{
+        a1:{
+          template:'#a1',
+          data(){
+            return {
+              list:[1,2,3,4,5]
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

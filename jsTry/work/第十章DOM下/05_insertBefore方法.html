@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript" src = "../tool.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oA3 = document.getElementById("a3");
+				var j1 = creater("p", "p内容");
+				// oA3.parentNode.insertBefore(j1, oA3);
+				insertAfter(j1, oA3);
+			}
+		</script>
+	</head>
+	<body>
+		<div id = "a1">
+			<a href="" id = "a2"></a>
+			<span id = "a3"></span>
+		</div>
+	</body>
+</html>

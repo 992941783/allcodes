@@ -1,0 +1,121 @@
+/* 遮罩层 */
+.shadow {
+    width:100%;
+    height:100%;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:2;
+    background: #000;
+}   
+    .shadow video {
+        width:60%;
+        height:70%;
+        position: fixed;
+        top:15%;
+        left:20%
+        
+    }
+    .mask{
+        width:100%;
+        height:100%;
+    }
+*{
+    margin:0;
+    padding:0;
+    text-decoration: none;
+    list-style: none;
+    color:black;
+    outline: none;
+}
+body {
+    font-size: 10px;
+    background: url(./img/backGroundImg.jpg) no-repeat;
+    height:100%;
+    width:100%;
+    z-index:1;
+}   
+#app {
+    width:80%;
+    height:70%;
+    margin:5em auto;
+    background:#b0b0b0;
+    position: relative;
+    opacity: 0.8;
+}
+    #header{/* 头:标题 */
+        background: #888888;
+    }
+        #header h1{
+            font-size: 3em;
+          	color:#99ff00;
+          	font-family:Cursive;
+        }
+        #header input{/* text文本框 */
+            width:40%;
+            height:30px;
+            position:absolute;
+            right:0px;
+            top:0;
+            border-radius:3em;
+            font-size:1.7em ;
+        }
+    #main{/* 中:数据 */
+        width:100%;
+        height:50em;
+    }
+        #scroll {/* 伪元素：歌单 */
+            width:25%;
+            overflow: hidden;
+            border-right:1px solid #a0a0a0;
+        }
+        #main #divList{
+            width:107%;
+            height:49.5em;
+            
+            
+        } 
+            #main #divList ul{/* 歌单 */
+                width:100%;
+                height:49.5em;
+                overflow-y: scroll;
+            }
+                #main #divList ul li{
+                    font-size: 1.7em;
+                    border-bottom:1px solid #a0a0a0;
+                }
+                    
+        #main div:nth-child(3){/* 播放界面 */
+            width:70%;
+            height:46.5em;
+            position: absolute;
+            top:12%;
+            right:0px;
+        }
+            #main #fengmian{/* 封面 */
+                width:32%;
+                height:27em;
+                position: absolute;
+                top:12em;
+                left:30em;
+            }
+            #main #wPingLun{/* 评论伪元素 */
+                width:34%;
+                border-left:1px solid #a0a0a0;
+                position: absolute;
+                right:0;
+                top:4em;
+                overflow: hidden;
+            }
+                #main #pingLun{
+                    width:105%;
+                    height:49em;
+                    overflow-y:scroll;
+                }
+                #main #wPingLun h1 {
+                    text-align: center;
+                }
+    #footer{}/* 尾:播放器 */
+        #footer audio{
+            width:100%;
+        }

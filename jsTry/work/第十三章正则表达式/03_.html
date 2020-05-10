@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+			/*var str = "www.baidu.com";
+			var reg = /www.(.+).com/gi;
+			console.log(str.replace(reg,"$1"))*/
+			/*var str = "hellohelloword";
+			var reg = /(hello)\1/gi;
+			console.log(str.replace(reg,"$1"+" "));*/
+			window.onload = function(){
+				var oInput = document.getElementById("input");
+				oInput.onchange = function(){
+					var str = this.value;
+					var reg = /^[a-zA-Z_]\w{5,14}$/;
+					if(reg.test(str)){
+						console.log("格式正确");
+					}else{
+						console.log("格式错误");
+					}
+				}			
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="input">
+	</body>
+</html>

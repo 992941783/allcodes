@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body {
+            width:99%;
+            height:100%;
+        }
+        div.outer{
+            width:100%;
+            height:76%;
+            overflow: hidden;
+            margin:0 auto;
+        }
+        div.inner{
+            height:100%;
+            width:100%;
+            overflow-y: scroll;
+            overflow-x:hidden;
+        }
+        textarea{
+            width:99%;
+            height:15%;
+            position:absolute;
+            top:76%;
+            left:0;
+            border:none;
+            outline:none;
+            resize: none;
+            cursor: none;
+        }
+        button{
+            position:absolute;
+            bottom:2%;
+            right:2%;
+            background: #62c462;
+            border:none;
+            border-radius: 10px;
+            padding:3px 10px;
+            outline:none;
+            font-size:35px;
+        }
+        a{
+            color:black;
+            position: absolute;
+            right:0;
+            bottom:100px;
+            text-decoration: none;
+            background: #7d7d7d;
+            border-radius: 10px;
+            padding:4px;
+            display: none;
+        }
+
+    </style>
+    <script type="text/javascript" src="./lib/jquery-3.4.1.js"></script>
+    <script>
+        //全局变量
+        let date = new Date();//日期对象
+        //获取用户昵称
+        let T;
+        while(T == null){
+            T = prompt('创建你的聊天昵称');
+            if(/\s/g.test(T) || T == ''){
+                T = null;
+            }
+        }
+        //最后执行
+        window.onload = function(){
+            $('textarea').focus();//获取焦点
+        }
+        //连接服务器
+        const ws = new WebSocket('ws://192.168.0.104:8080/')//连接
+        ws.onopen = ()=>{//连接成功事件
+            console.log('服务器连接成功')
+        };
+        //监听服务器关闭
+        ws.onclose = (msg)=>{//服务器关闭事件
+            console.log('服务器关闭')
+        };
+        //接收信息（服务器）
+        ws.onmessage = (msg)=>{//监听数据
+            let random = Math.random()*100;//生成随机数
+            let {data} = msg;//取得服务器数据
+            //添加到dom
+            if(data.split(':')[1].length <= 29){//少量信息
+                $('div.inner').append('<div id=come'+random+' style="position: relative;padding:0;margin:0;height:63px;"><span style="position: absolute;left:0; ">'+data.split(':')[0]+'</span><span style="border-radius:10px;padding:0px 10px;background: #5bc0de;position:absolute;left:0;font-size: 20px;margin-top: 20px">' + data.split(':')[1] + '</span></div>')
+                $('a').attr('href','#come'+random+'')//将div的id与锚点绑定
+                $('a')[0].click()//直接点击
+            }else{//大量信息
+                $('div.inner').append('<div id=come'+random+' style="position: relative;padding:0;margin:0;"><p style="position: absolute;left:0;margin:0;">'+data.split(':')[0]+'</p><p style="border-radius:10px;padding:0px 10px;background: #5bc0de;font-size: 20px;margin-top: 20px;position: relative; top:19px">' + data.split(':')[1] + '</p><p style="clear: both;height:0;overflow: hidden"></p></div>')
+                $('a').attr('href','#come'+random+'')//将div的id与锚点绑定
+                $('a')[0].click()//直接点击
+            }
+        };
+        //发送信息（客户端）
+        function sendData(){
+            if($('textarea').val() != '') {//判断数据是否为空
+                let random = Math.random()*100;//生成随机数，（div的id，用于锚点链接）
+                let data = $('textarea').val();//文本框信息
+                $('textarea').val('')//清空文本框信息
+                //发送到服务器
+                ws.send(T+':' + data)//发送到服务器
+                //添加到dom
+                if (data.length <= 29) {//小数据
+                    //添加到dom中，小数据
+                    $('div.inner').append('<div id=send'+random+' style="position: relative;padding:0;margin:0;height:63px;"><span style="position: absolute;right:0; ">我</span><span style="border-radius:10px;padding:0px 10px;background: #62c462;position:absolute;right:0px;font-size: 20px;margin-top: 20px">' + data + '</span></div>')
+                    $('a').attr('href','#send'+random+'')//将div的id与锚点绑定
+                    $('a')[0].click()//直接点击
+                    $('textarea').focus()//获取焦点
+                } else {
+                    //添加到dom中,大数据
+                    $('div.inner').append('<div id=send'+random+' style="position: relative;padding:0;margin:0;"><p style="position: absolute;right:0;margin:0;">我</p><p style="border-radius:10px;padding:0px 10px;background: #62c462;font-size: 20px;margin-top: 20px;position: relative; top:19px">' + data + '</p><p style="clear: both;height:0;overflow: hidden"></p></div>')
+                    $('a').attr('href','#send'+random+'')//将div的id与锚点绑定
+                    $('a')[0].click()//直接点击
+                    $('textarea').focus()//获取焦点
+                }
+            }
+        }
+        //方法
+        function sendDatas(event){if(event == 13){sendData()}}//键盘事件，回车发送
+        function a(){$('a').css('display','none')}//点击隐藏事件
+    </script>
+</head>
+<body>
+<div style="border:solid 1px black; width:100%; height:100%; margin:0;position: relative;margin:0 auto">
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+    <textarea onkeyup="sendDatas(event.keyCode)"></textarea>
+    <button  onclick="sendData()" >发送</button>
+    <a href="#" onclick="a()">新消息</a><!--锚点-->
+</div>
+</body>
+</html>

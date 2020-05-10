@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript" src="../../库/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			// $.ajax({
+			// 	type:"get",
+			// 	url:"./person.json",
+			// 	success: function(resp){
+			// 		alert(resp.name);
+			// 	},
+			// 	error: function(){
+
+			// 	}
+			// })
+
+			$.ajax({url:"./api1"}).done(function(){
+				return $.ajax({url:"./api2"})
+			}).done(function(){
+				return $.ajax({url:"./api3"})
+			}).done(function(){
+				console.log("调用结束");
+			})
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,63 @@
+01节 get
+	1：什么是Ajax？
+		1：全称（Asynchronous JavaScript And XML）
+		2：是一种异步加载数据的技术
+		3：可以通过使用Ajax，来实现页面的局部刷新
+	2：如何使用Ajax？
+		1：Ajax的核心对象：XMLHttpRequest（XHR）
+		2：GET（从服务器取得数据）数据位置（放在url中，）
+		3：POST（向服务器传送数据）数据位置（放到body中）
+	3：发送Ajax-get请求步骤
+		1：创建Ajax对象
+		4：监听请求（通过一个事件：.onreadystatechange）
+			当XHR对象的readyState属性发生改变时，事件就会触发
+			（readyState属性有几个状态）：
+			1：状态为“0”，XHR对象已经创建，但是还没有进行初始化操作（就是刚new出来，家没有open）
+			2：状态为“1”，XHR对象已经调用open
+			3：状态为“2”，XHR已经发出ajax请求
+			4：状态为“3”，已经返回部分数据
+			5：状态为“4”，数据已经全部返回
+		2：打开这个对象（就是配置这个对象）.open参数（"get/post", "请求的文件路径" "发送方式（异步或同步）（true为异步/false为同步）"）
+		3：发送请求（.send方法）
+		
+		注意：	1：http协议的响应码在status中
+			2：返回的数据在对象的responseText的属性中（string）
+			3：console.error(失败时的显示)
+
+02节Ajax-post-json
+	1:Post请求要在服务器写响应代码
+	2:Post的数据在body中，所以要在发送请求时(send)传递参数，此数据为所要传递的数据，是表单格式，
+	3:我们要告诉服务器这是什么格式的数据，所以要设置一个请求头部(setRequestHeader)，参数为content-Type,application/x-www-form-urlencodes。
+	4:JavaScript object Notation 是一种轻量级的数据交换格式
+    		Json→js json.parse（data）
+    		Js→json json.stringify（js对象）
+
+03服务器响应
+	1:responseText ==> 获得字符串形式的响应数据
+	2:responseXML ==> 获得XML形式的响应数据
+		1：如果服务器响应的是XML,因为需要解析XML对象， 所以使用responseXML来获取数据
+
+04XHR readyState
+	1.XHR对象三个重要属性：
+		1.onreadystatechange ==> 每当readystate属性发生改变时就会触发此事件
+		2.readystate ==> XHR的状态 有四个：      1：状态为“0”，XHR对象已经创建，但是还没有进行初始化操作（就是刚new出来，家没有open）
+					 	2：状态为“1”，XHR对象已经调用open
+						3：状态为“2”，XHR已经发出ajax请求
+						4：状态为“3”，已经返回部分数据
+						5：状态为“4”，数据已经全部返回
+		3.status ==> 200:ok;  404:未找到页面
+	2.callback函数：将一个函数作为参数传递给另一个函数
+		例子：function a (callback){
+			alert("我是函数")
+		}
+		          function b (){
+			alert("我是回调参数")
+		}
+		a(b)
+	
+
+注意：      1.IE5和IE6使用new ActiveXObject("Microsoft.XMLHTTP")创建ajax对象
+	2.send()方法的参数只用于post请求
+	3.post请求没有数据量限制， 并且比get更稳定更可靠
+	4.使用get请求发送信息时， 在URL中添加信息， 例: .open("get", "text,text?user=admin&password=root"
+, true )

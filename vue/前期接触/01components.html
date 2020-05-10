@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        
+    </head>
+    <body>
+        <div id='all'>
+            <mycom1 :mess='mess'></mycom1>
+        </div>
+        <div id='all1'><mycom1></mycom1></div>
+        <div id='all2'><mycom1></mycom1></div>
+        
+    </body>
+    <script>
+        /* const mycom1 = {
+            template:'<div>hello</div>'
+        } */
+        Vue.component('mycom1',{/* 全局组件 */
+            data:()=>{
+                return {
+                    count: 0,
+                }
+            }, 
+            template:'<button v-on:click="click1">hello{{count}}{{mess}}</button>',
+            methods: {
+                click1:function(){
+                    this.count ++
+                }
+            },
+            props:['mess']
+        })
+
+
+        var vm = new Vue({
+            el:'#all',
+            data:{
+                mess:2
+            },
+            // components:{
+            //     mycom1:mycom1
+            // }/* 局部组件 */
+            
+        })
+        new Vue({el:'#all1'})        
+     </script>
+</html>

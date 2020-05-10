@@ -1,0 +1,48 @@
+<!doctype html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript" src="../../库/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){		/*页面加载完成后执行此区域代码*/
+				$("div").click(function(){	/*div点击事件*/	
+					$(this).toggleClass("play");	/*改变节点（div）class类*/
+					$(this).toggleClass("next");	/*改变节点（div）class类*/
+				})
+				$("input[type=text]").keyup(function(){		/*text节点按键事件*/
+					var a = $("input[type=text]").val();		/*将this（text节点）的内容（val）赋值给a*/
+					$("input[type=text]").val("");		/*将节点内容设置为空*/
+					if(a.slice(-2) == "px"){	/*判断：如果内容后两位是“px”*/
+						$("input[type=text]").val(a+"px");	/*将节点内容设置为输入内容+“px”*/
+					}else if(a.slice(-2) !== "px"){		/*判断：如果内容后两位不是“px”*/
+						$("input[type=text]").val(a+"px");	/*将节点内容设置为输入内容+“px”*/
+					}
+				})
+
+				$("input[type=checkbox]").change(function(){	/*单选input节点的改变事件*/
+					console.log($("input[type=checkbox]").prop("checked"));	/*控制台输出checked的返回值*/
+				})
+			}
+		</script>
+		<style>
+			.next {
+				background-color: #000;
+			}
+
+			.play {
+				background-color: blue;
+			}
+
+			div {
+				width:400px;
+				height:400px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="next"></div>
+		<input type="text"> 
+		<p>提交<input type="checkbox" checked></p>
+	</body>
+</html>

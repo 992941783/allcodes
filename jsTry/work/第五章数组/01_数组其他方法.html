@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+		//concat方法。
+		//合并
+			var q1 = ["a1", "a2", "a3"];	//定义数组。
+			var q2 = ["b1", "b2", "b3"];	//定义数组。
+			var sum = q1.concat(q2);	//concat方法、array1.concat(array2),合并数组,返回值为新生成的数组。
+
+		//slice方法。
+		//截取指定区域生成新数组。
+			var som = q1.slice(0,2);	//定义数组。
+			// alert(som);		//输出。
+
+		//splice方法。
+		//array.splice(a, b, c)	a:起始下标； b:数量； c:字符。
+			var snn = q1.splice(0,2);	//删除数组元素。
+			alert(q1);
+			var sss = q1.splice(0,0,"hello");	//添加。
+			alert(q1);
+			var smm = q1.splice(1,1,"hello1");	//替换。
+			alert(q1)
+
+		//join方法。
+			var lis = [1,4,"迪迦"];		//定义数组。
+			var list = lis.join("+");	//用字符将数组的元素拼接成字符串。
+			alert(list);
+			alert(typeof(list));
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
+
+
+

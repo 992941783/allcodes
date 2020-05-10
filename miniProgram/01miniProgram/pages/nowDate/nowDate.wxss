@@ -1,0 +1,7 @@
+/* pages/nowDate/nowDate.wxss */
+.red{
+  color:red;
+}
+.blue{
+  color:blue
+}

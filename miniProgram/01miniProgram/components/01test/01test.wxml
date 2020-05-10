@@ -1,0 +1,4 @@
+<!--components/01test/01test.wxml-->
+<text>components/01test/01test.wxml</text>
+<view>我是标题</view>
+<view>我是内容</view>

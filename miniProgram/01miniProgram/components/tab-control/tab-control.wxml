@@ -1,0 +1,8 @@
+<!--components/tab-control/tab-control.wxml-->
+<view class='tab-controls'>
+  <view class='tab-control {{1==index?"itemStyle":""}}' bind:tap='changeItem' data-index='1'>流行</view>
+  
+  <view class='tab-control {{2==index?"itemStyle":""}}' bind:tap='changeItem' data-index='2'>热门</view>
+
+  <view class='tab-control {{3==index?"itemStyle":""}}' bind:tap='changeItem' data-index='3'>推荐</view>
+</view>

@@ -1,0 +1,586 @@
+[
+  {
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "optional": false,
+            "field": "varname1",
+            "description": "<p>No type.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "varname2",
+            "description": "<p>With type.</p>"
+          }
+        ]
+      }
+    },
+    "type": "",
+    "url": "",
+    "version": "0.0.0",
+    "filename": "./foodApiDoc/main.js",
+    "group": "E__nodejs_project________foodApiDoc_main_js",
+    "groupTitle": "E__nodejs_project________foodApiDoc_main_js",
+    "name": ""
+  },
+  {
+    "type": "post",
+    "url": "/file/addImg",
+    "title": "上传图片",
+    "name": "addIme",
+    "group": "file",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "file",
+            "optional": false,
+            "field": "hhh",
+            "description": "<p>键名</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "err",
+            "description": "<p>状态码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "why",
+            "description": "<p>说明</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "path",
+            "description": "<p>文件名</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./router/fileRouter.js",
+    "groupTitle": "file"
+  },
+  {
+    "type": "post",
+    "url": "/food/add",
+    "title": "添加菜品",
+    "name": "add",
+    "group": "food",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>菜名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "fenlei",
+            "description": "<p>分类</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "price",
+            "description": "<p>价格</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "doc",
+            "description": "<p>描述</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "pingjia",
+            "description": "<p>评价</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "img",
+            "description": "<p>图片相对路径（无需主机&amp;端口）</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "err",
+            "description": "<p>状态码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "why",
+            "description": "<p>说明</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./router/foodRouter.js",
+    "groupTitle": "food"
+  },
+  {
+    "type": "post",
+    "url": "/food/del",
+    "title": "删除菜品",
+    "name": "del",
+    "group": "food",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>菜名</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "err",
+            "description": "<p>状态码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "why",
+            "description": "<p>说明</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./router/foodRouter.js",
+    "groupTitle": "food"
+  },
+  {
+    "type": "post",
+    "url": "/food/getDataByClass",
+    "title": "分类查询",
+    "name": "getDataByClass",
+    "group": "food",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "word",
+            "description": "<p>查询字符串</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "err",
+            "description": "<p>状态码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "why",
+            "description": "<p>说明</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "data",
+            "description": "<p>查询返回的数据</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./router/foodRouter.js",
+    "groupTitle": "food"
+  },
+  {
+    "type": "post",
+    "url": "/food/getDataByKw",
+    "title": "关键字查询",
+    "name": "getDataByKw",
+    "group": "food",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "word",
+            "description": "<p>关键字</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "err",
+            "description": "<p>状态码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "why",
+            "description": "<p>说明</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "data",
+            "description": "<p>查询返回的数据</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./router/foodRouter.js",
+    "groupTitle": "food"
+  },
+  {
+    "type": "post",
+    "url": "/food/getDataByPage",
+    "title": "分页查询",
+    "name": "getDataByPage",
+    "group": "food",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "page",
+            "description": "<p>第几页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "pageSize",
+            "description": "<p>每页大小</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "err",
+            "description": "<p>状态码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "why",
+            "description": "<p>说明</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "data",
+            "description": "<p>查询返回的数据</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./router/foodRouter.js",
+    "groupTitle": "food"
+  },
+  {
+    "type": "post",
+    "url": "/food/update",
+    "title": "修改菜品",
+    "name": "update",
+    "group": "food",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>菜名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "fenlei",
+            "description": "<p>分类</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "price",
+            "description": "<p>价格</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "doc",
+            "description": "<p>描述</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "pingjia",
+            "description": "<p>评价</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "img",
+            "description": "<p>图片相对路径（无需主机&amp;端口）</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "err",
+            "description": "<p>状态码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "why",
+            "description": "<p>说明</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./router/foodRouter.js",
+    "groupTitle": "food"
+  },
+  {
+    "type": "post",
+    "url": "/food/getMailCode",
+    "title": "获取邮箱验证码（五分钟内上限三次）",
+    "name": "getMailCode",
+    "group": "user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mailUser",
+            "description": "<p>邮箱账号</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "err",
+            "description": "<p>状态码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "why",
+            "description": "<p>说明</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./router/userRouter.js",
+    "groupTitle": "user"
+  },
+  {
+    "type": "post",
+    "url": "/user/login",
+    "title": "管理员登录",
+    "name": "login",
+    "group": "user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "us",
+            "description": "<p>账户（邮箱账号）</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ps",
+            "description": "<p>密码</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "err",
+            "description": "<p>状态码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "why",
+            "description": "<p>说明</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./router/userRouter.js",
+    "groupTitle": "user"
+  },
+  {
+    "type": "psot",
+    "url": "/user/reg",
+    "title": "管理员注册",
+    "name": "reg",
+    "group": "user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "us",
+            "description": "<p>账号（邮箱账号）</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ps",
+            "description": "<p>密码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>邮箱验证码</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "err",
+            "description": "<p>状态码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "why",
+            "description": "<p>说明</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./router/userRouter.js",
+    "groupTitle": "user"
+  }
+]

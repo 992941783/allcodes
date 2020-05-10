@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+			window.onload = function(){		//在页面加载完成后执行此代码块。
+				var ob1 = document.getElementById("btm")	//绑定页面节点，并赋值给变量。
+				var tx1 = document.getElementById("tx")		//绑定页面节点,并赋值给变量。
+				ob1.onclick = function(){	//点击事件
+					alert("提交成功")	//点击时触发该事件
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" value="hello" id="tx">
+		<input type="button" value="提交" id="btm">
+	</body>
+</html>

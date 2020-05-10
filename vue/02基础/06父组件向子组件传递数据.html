@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id='app'>
+        <a1 :clist1='list1'></a1>
+    </div>
+
+    <!-- 模板 -->
+    <template id='a1'>
+        <div>
+            <ul>
+                <li v-for='item in clist1'>test{{item}}</li>
+            </ul>
+            <h1>{{clist2}}</h1>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                list1:[6,7,8,9,10]
+            },
+            methods: {
+            
+            },
+            computed:{
+            
+            },
+            filters:{
+            
+            },
+            components:{
+                a1:{
+                    template:'#a1',
+                    props:{
+                        clist1:{
+                            type:Array,
+                            default(){
+                                return [1,2,3,4,5]
+                            },
+                            
+                        }
+                    },
+                    data(){
+                        return {
+                            clist2:this.clist1
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

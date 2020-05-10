@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function a (callback){
+			alert("我是函数");
+			callback();
+		}
+		function b (){
+			alert("我是回调函数b");
+		}
+		function c (){
+			alert('我是回调函数c');
+		}
+
+		a(b);
+		a(c)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

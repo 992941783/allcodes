@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript" src="../../库/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			//http://suggestion.baidu.com/s?wd=apple&cb=callback&callback=?
+			window.onload = function(){
+				$("input[type=text]").change(function(){	/*type为text的节点的change事件*/
+					$.ajax({	/*发送ajax*/
+						type:"get",		/*请求类型post/get*/
+						url:"http:suggestion.baidu.com/s",	/*请求地址*/
+						dataType:"jsonp",	/*数据类型jsonp*/
+						jsonp:"cb",		/**/
+						data:{	/*附带的数据*/
+							wd:$("input[type=text]").val()
+						}
+					}).done(function(resp){		/*请求返回后再执行此代码块，回调函数*/
+						$("ul").html('');	/*将节点内容清空*/
+						for(var i = 0; i < resp.s.length; i++){		/*循环取出数据放入li中*/
+						$("ul").append("<li>"+resp.s[i]+"</li>");
+						}
+					}).fail(function(){
+						$("html").append("<p>请求失败</p>");
+					})
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text"><input type="button" value="搜索">
+		<ul></ul>
+	</body>
+</html>	

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript" src = "../tool.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oB1 = document.getElementById("b1");
+				removeSpace(oB1.parentNode);
+				// alert(oB1.attributes["title"].nodeValue);
+			/*	alert(oB1.attributes["title"].nodeName);
+				alert(oB1.attributes["title"].nodeType);
+*/				
+				/*alert(oB1.parentNode.childNodes.length);
+				alert(oB1.parentNode.nodeName);
+				alert(oB1.nextSibling.nodeName);
+				alert(oB1.parentNode.childNodes[2].nodeName);*/
+				alert(oB1.nextSibling.attributes["id"].nodeValue);
+				alert(oB1.nextSibling.attributes["id"].nodeName);
+				alert(oB1.nextSibling.attributes["id"].nodeType);
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<span id = "b1" title = "TD"></span>
+			<p id = "p1" title = "til"></p>
+			<a href=""></a>
+		</div>
+	</body>
+</html>

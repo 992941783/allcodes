@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+			// var zx = confirm("请点击");
+			// // alert(zx);
+			// alert(prompt("请输入", 0));
+			// //实验
+			window.onload = function(){
+				var bt = document.getElementById("btn1");
+				bt.onclick = function(){
+					// opener.document.write("子窗口让我输出的");
+					alert("opener");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type = "button" value = "我是子窗口" id = "btn1">
+	</body>
+</html>

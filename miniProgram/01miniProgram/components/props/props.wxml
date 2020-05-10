@@ -1,0 +1,3 @@
+<!--components/props/props.wxml-->
+<view class='propstyle'>{{title}}</view>
+<view>我是props的内容</view>

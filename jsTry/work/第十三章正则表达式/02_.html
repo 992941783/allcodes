@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+			var reg = /[a-z]/;//匹配一个范围
+			var str = "b";
+				console.log(reg.test(str));
+			var reg2 = /\W/;
+			var str2 = " ";
+				console.log(reg2.test(str2));
+			var reg3 = /\D/;
+			var str3 = "a";
+				console.log(reg3.test(str3));
+			var str4 = "this is a apple";
+			var reg4 = /\s*/gi;
+			// str4.replace(reg4,"");
+			console.log(str4.replace(reg4,""));
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

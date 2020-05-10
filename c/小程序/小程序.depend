@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1583635540 source:d:\doc\c\小程序\00不重复数.c
+	<stdio.H>
+	<string.h>
+
+1583635218 source:d:\doc\c\小程序\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

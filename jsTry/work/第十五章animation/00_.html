@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			* {
+				margin:0;
+				padding:0;
+			}
+			div {
+				width:100px;
+				height: 100px;
+				background-color: black;
+				position:absolute;
+				left:0;
+				top:0;
+			}
+			.div2 {
+				width:100px;
+				height: 100px;
+				background-color: black;
+				position:absolute;
+				left:500px;
+				top:500px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oDiv = document.getElementsByTagName("div")[0];
+				var oDiv2 = document.getElementsByTagName("div")[1];
+				oDiv.timePx = 3;
+				oDiv.timePy = 5;
+				oDiv2.timePx = 3;
+				oDiv2.timePy = 5;
+				//匀速
+				function cool(el){
+					var a = parseInt(getComputedStyle(el)["left"]);
+					var a1 = parseInt(getComputedStyle(el)["top"]);
+					pengzhuang(oDiv);
+					pengzhuang(oDiv2);
+					var tmpx,tmpy;
+					if(divpengzhuang(oDiv,oDiv2)){
+						tmpx = oDiv.timePx;
+						tmpy = oDiv.timePy;
+						oDiv.timePx = oDiv2.timePx;
+						oDiv.timePy = oDiv2.timePy;
+						oDiv2.timePx = tmpx;
+						oDiv2.timePy = tmpy;
+					}
+					var b = a + el.timePx;
+					var b1 = a1 + el.timePy;
+					el.style.left = b + "px";
+					el.style.top = b1 + "px";
+				}
+				setInterval(function(){
+					cool(oDiv);
+					cool(oDiv2);
+				}, 10);
+				//碰撞检测函数
+				function pengzhuang(node){
+					var a = getComputedStyle(node)
+					var left = parseInt(a["left"]);
+					var width = parseInt(a["width"]);
+					var top = parseInt(a["top"]);
+					var height = parseInt(a["height"]);
+					if(left < 0){
+						left = 0;
+						node.timePx *= -1;
+					}else if(left > window.innerWidth - width){
+						left = window.innerWidth - width;
+						node.timePx *= -1;
+					}else if(top < 0){
+						top = 0;
+						node.timePy *= -1;
+					}else if(top > window.innerHeight - height){
+						top = window.innerHeight - height;
+						node.timePy *= -1;
+					}
+					node.style.left = left + "px";
+					node.style.top = top + "px";
+				}
+				//块与块碰撞检测
+				function divpengzhuang(node1, node2){
+					var width1 = parseInt(getComputedStyle(node1)["width"]);
+					var width2 = parseInt(getComputedStyle(node2)["width"]);
+					var height1 = parseInt(getComputedStyle(node1)["height"]);
+					var height2 = parseInt(getComputedStyle(node2)["height"]);
+					var left1 = parseInt(getComputedStyle(node1)["left"]);
+					var left2 = parseInt(getComputedStyle(node2)["left"]);
+					var top1 = parseInt(getComputedStyle(node1)["top"]);
+					var top2 = parseInt(getComputedStyle(node2)["top"]);
+					var center1 = {
+						x: left1 + width1 / 2,
+						y: top1 + height1 / 2
+					}
+					var center2 = {
+						x: left2 + width2 /2,
+						y: top2 + height2 /2
+					}
+					var s1 = Math.abs(center1.x - center2.x);
+					var s2 = Math.abs(center1.y - center2.y);
+					if(s1 < (width1+width2)/2&&s2<(height1+height2)/2){
+						return true;
+					}
+					return false
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div class = "div2"></div>
+	</body>
+</html>

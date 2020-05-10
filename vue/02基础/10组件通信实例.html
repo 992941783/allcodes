@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <a1 :number1='num1' :number2='num2' @input1='input1' @input2='input2'></a1>
+    </div>
+    
+    <template id='a1'>
+        <div>
+            <h2>props:{{number1}}</h2>
+            <h2>cnum:{{cnumber1}}</h2>
+            <input type="text" v-model.number='cnumber1' @input='input1'>
+            <h2>props:{{number2}}</h2>
+            <h2>cnum:{{cnumber2}}</h2>
+            <input type="text" v-model.number='cnumber2' @input='input2'>
+        </div>
+    </template>
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                num1:0,
+                num2:1
+            },
+            methods: {
+                input1(data){
+                    this.num1 = data
+                    this.num2 = data*100
+                },
+                input2(data){
+                    this.num2 = data
+                    this.num1 = data/100
+                }
+            },
+            computed:{
+    
+            },
+            filters:{
+    
+            },
+            components:{
+                a1:{
+                    template:'#a1',
+                    props:{
+                        number1:{
+                            type:Number,
+                        },
+                        number2:{
+                            type:Number
+                        }
+                    },
+                    data(){
+                        return {
+                            cnumber1:this.number1,
+                            cnumber2:this.number2
+                        }
+                    },
+                    methods:{
+                        input1(){
+                            this.$emit('input1',this.cnumber1)
+                            this.cnumber2 = this.cnumber1*100
+                        },
+                        input2(){
+                            this.$emit('input2',this.cnumber2)
+                            this.cnumber1 = this.cnumber2/100
+                        }
+                    }                 
+                }
+            }
+        })
+    </script>
+</body>
+</html>

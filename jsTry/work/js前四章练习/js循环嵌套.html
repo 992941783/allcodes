@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+			for(var i = 0; i<5; i++){	//当i<5时执行，不包含5
+				for(var j=0; j<=i; j++){	//当i<=i时执行
+					document.write("*")		//页面输出xxx
+				}
+				document.write("<br />")	//页面输出xxx
+			}
+
+			var i = 0;	//初始化
+			var j = 0;	//初始化
+			while(i<5){		//不确定循环次数，用while。
+				while(j<=i){
+					document.write("*")
+					j++;
+				}
+				document.write("<br />")
+				i++;
+			}
+/*			var i=0,j=0;
+			do{
+				do{
+					document.write("*")
+					j++
+				}while(j<=i)
+				document.write("<br />")
+				i++
+			}while(i<5)*/
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

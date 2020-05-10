@@ -1,0 +1,31 @@
+<!doctype html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript" src="../../库/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){		/*此代码块页面加载完成后执行*/
+				$(".head input").change(function(){		/*head下input标签的改变事件*/
+					var head_1 = $(this).prop("checked");	/*将input标签的checked状态赋值给head_1*/
+					$(".main input").prop("checked",head_1);	/*将main下input标签的checked属性改为herd_1的状态*/
+				})
+
+				$(".main input").change(function(){	/*改变事件*/
+					var all_1 = $(".main input").length;	/*将main下input标签的数量赋值给all_1*/
+					var all_2 = $(".main input:checked").length;	/*将状态为checked的input标签的数量赋值给all_2*/
+					var all_0 = all_2 === all_1;	/*将all_2与all_1比较返回的布尔值付给all_0*/
+					$(".head input").prop("checked",all_0);	/*将input标签的checked状态改为all_0，绑定*/
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<p class="head">全选<input type="checkbox"></p>
+		<p class="main">
+			<input type="checkbox">按钮1<br>
+			<input type="checkbox">按钮2<br>
+			<input type="checkbox">按钮3<br>
+		</p>
+	</body>
+</html>

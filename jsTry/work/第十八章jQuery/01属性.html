@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript" src="../../库/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){	/*最后执行*/
+				var a = $("div").html();	/*将div的内容赋值给a*/
+				$("html").append("<h1>"+a+"</h1>");	/*在html下添加一个节点*/
+			}
+		</script>
+		<style type="text/css">
+			div {
+				width:400px;
+				height:400px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div><a>div1</a></div>
+	</body>
+</html>

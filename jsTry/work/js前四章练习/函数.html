@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+		// 判断年份是否为闰年
+			function leapYear(year){	//定义函数， 变量名(参数)
+				if(year % 400 == 0 || year % 100 == 0 && year % 4 != 0){	//如果year/400或year/100的余数是零、并且year/4的余数不为零。
+					return true;	//返回true。
+				}else{	//其他
+					return false;	//返回false。
+				}
+			}
+			alert(leapYear(2001))	//使用函数，函数名(参数)。
+		/*判断是否为素数*/
+			function prim(num){		//函数。
+				var eyes = true;	//初始化
+				for(var i = 2; i < num; i++){	//for循环。
+					if(num % i == 0){	//如果num/i的余数等于0。
+						eyes = false;	//赋值
+						break;	//退出此循环。
+					}
+				}
+				return eyes;	//返回值。
+			}
+			alert(prim(4))		//输出。
+		/*求圆周长*/
+		function circ(num){		//函数定义。
+			var pr = 3.14;		//变量初始化。
+			var peri = num*2*pr;	//初始化。
+			return peri		//返回值。
+		}
+		alert(circ(2))		//输出。
+
+		/*求圆面积*/
+		function area(num){		//函数定义。
+			var pr = 3.14, sum = 0;		//变量初始化。
+			sum = pr*(num*num);		//赋值。
+			return sum		//返回值。
+		}
+		alert(area(10))		//输出。
+		/*判断两个数大小*/
+		function twosize(num1,num2){	//函数定义。
+			if(num1>num2){		//判断。
+				return num1;	//返回值。
+			}else if(num1<num2){	//判断。
+				return num2;	//返回值。
+			}else{	//其他。
+				return "两数相等";	//返回值。
+			}
+		}
+		alert(twosize(4,4))		//输出。
+
+		// 一到一百的和 (函数递归)
+		function sum(n){	//函数定义。
+			if(n==1){	//判断。
+				return 1;	//返回值。
+			}
+			return sum(n-1)+n; 	//返回值。
+		}
+		alert(sum(100))		//输出。
+
+		// 打印文字
+		function tx(n){		//函数定义。
+			if(n == 0){		//判断。
+				return;		//返回值。
+			}
+			return tx(n-1)+"hello word<br />";	//返回值。
+		}
+		document.write(tx(10))	//页面输出。
+
+		// 阶乘
+		function factorial(n){	//函数定义。
+			if(n == 1){		//判断。
+				return 1;	//返回值
+			}
+			return factorial(n-1)+n*n;	//返回值。
+		}
+		alert(factorial(3))		//输出。
+		</script>
+
+	</head>
+	<body>
+
+	</body>
+</html>

@@ -1,0 +1,10 @@
+/* pages/index/index.wxss */
+text {
+  font-size: 14px;
+}
+weathers {
+  display:flex
+}
+.weathersText {
+  flex:1
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			* {
+				margin:0;
+				padding:0;
+				list-style:none;
+			}
+			div {
+				width:700px;
+				height:400px;
+				border: 1px solid #f00;
+
+			}
+
+				ul {
+					width:700px;
+					height:400px;
+				}
+					.li1 {
+						width:700px;
+						height:400px;
+						position: absolute;
+						opacity: 0
+					}
+					#id1 {
+							opacity: 1;
+						}
+						img {
+							height:400px;
+							width:700px;
+						}
+
+
+		</style>
+		<script type="text/javascript" src="../tool.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+
+				function prve(){
+					var len = document.getElementsByTagName("li1").length;
+					var node = document.getElementsByTagName("li1");
+					for(var i=0;i<len;i++){
+						if(styleAnd(node[i],"opacity") == 1){
+							return node[i];
+						}
+					}
+				}
+
+				function shangyige(){
+					var num = prve();
+					num.previousElementSibling.style.opacity = 1;
+					num.style.opacity = 0;
+				}
+
+				function next(){
+					var num = prve();
+					num.nextElementSibling.style.opacity = 1;
+					num.style.opacity = 0;
+				var but = document.getElementsByTagName("button");
+				but[0].onclick = shangyige();
+				but[1].onclick = next();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li class = "li1" id = "id1"><img src="1.jpg" alt="1"></li>
+				<li class = "li1"><img src="2.jpg" alt="2"></li>
+				<li class = "li1"><img src="3.jpg" alt="3"></li>
+			</ul>
+			<button>上一张</button>
+			<button>下一张</button>
+		</div>
+	</body>
+</html>

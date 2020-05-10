@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+			var a1 = [10,1,3,4,2,5,6,9];
+/*			for(var i = 0; i < a1.length ; i++){
+				for(var j = 0; j < a1.length -i - 1; j++){
+					if(a1[j] < a1[j + 1]){
+						var tmp = a1[j];
+						a1[j] = a1[j + 1];
+						a1[j + 1] = tmp
+
+					}
+				}
+			}
+*/
+			for(var i = 0; i < a1.length -1; i++){	//轮数，for循环。
+				for(var j = 0; j < a1.length - 1; j++){		//每轮比较次数，for循环。
+					if(a1[j] < a1[j+1]){	//如果前边的数<它后边紧跟着的数，if判断。；此为降序。
+						var tmp = a1[j];	//交换位置。
+						a1[j] = a1[j+1];
+						a1[j+1] = tmp;
+					}
+				}
+			}
+			alert(a1)
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

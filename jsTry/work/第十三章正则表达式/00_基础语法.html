@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+			var reg = /abc/gi;
+			var str = "abc hello word abcAbc";
+			console.log(reg.test(str));
+			console.log(reg.exec(str));
+			console.log(str.replace(reg,"z"));
+			console.log(str.search(reg));
+			console.log(str.split(reg));
+			console.log(str.match(reg));
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

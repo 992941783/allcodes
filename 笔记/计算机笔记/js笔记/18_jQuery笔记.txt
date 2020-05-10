@@ -1,0 +1,98 @@
+第一节：1.$(选择器)，找到页面的元素
+	2.html==>innerHTML
+	3.val==>input.value 
+
+第二节：
+	1.节点.toggleclass("class") ==> 改变节点的class类，如果有此class就去掉，否则就加上
+	2.”+变量+“；
+	3.prop和attr
+		节点.prop() 获得节点自带的属性
+		节点.attr() 获得节点自定义的属性
+	4.$("div:xxx") xxx是限定的条件，可以表示第几个“eq(0)”；[type=text]; "checked"
+
+第三节：animate动画
+	下列方法格式：节点.fun();
+	1.显示：
+		显示：show(时间)；
+		隐藏：hide(时间)；
+	2.更改透明度：
+		显示：fadeIn(时间);
+		隐藏：fadeOut(时间)；
+	3.窗帘效果：
+		显示：slideDown(时间)；
+		隐藏：slideUp(时间)；
+	4.自定义：支持链式操作
+		显示：animate({
+		       width:500,
+		},时间).animate({
+ 		       height:500,
+		},时间)
+	5.停止：
+		stop(true)； 如果参数缺省，那么只会停止正在执行的动画，为true时，停止节点全部动画
+第四节：节点遍历
+	1.节点.children();	取得此节点的子节点
+	2.节点.parent();	取得此节点的父节点
+	3.节点.find();	取得此节点的所有子节点
+	4.节点.parents();	取得此节点的所有父节点
+	5.节点.prev();	取得此节点的上一个节点
+	6.节点.next();	取得此节点的下一个节点
+	7.节点.siblings();	取得此节点的兄弟节点
+
+第五节：ajax
+	发送流程格式：$.ajax({
+	          type:"get/post",	请求类型
+	          url:"path"	请求地址
+	}).done(function(返回值){
+	          此代码为回调函数代码，
+	          ajax请求返回数据时执行，
+	}).fail(function(返回值){
+	          此代码为回调函数代码，
+	          ajax没有返回数据时执行，
+	})
+
+第五节：jsonp
+	ajax和jsonp区别：解决跨域请求
+	发送流程格式：$.ajax({
+	            type:"get/post",	请求类型
+	            url:"path",		请求地址
+	            datatype:"jsonp",	数据类型
+	            jsonp:"xxx"，		xxx随意，指定回调函数，但必须与下面get参数保持一致
+	            data：{
+		附带的数据
+		}
+	}).done(function(返回值){
+	      返回时执行
+	}).fail(function(返回值){
+	      无返回值时执行
+	})
+
+第六节：event事件	支持链式调用
+	普通事件格式：节点.on("mouseover",function(){
+			事件发生代码
+		}).on("xxx",function(){
+			xxx
+		})
+	事件委托格式：避免后添加的节点没有事件
+			父节点.on("事件"，"子节点"，function(){
+					事件发生代码
+				})
+
+第七节：动态添加节点
+	1.添加到此节点内最后：	
+			1.父节点.append("新节点")
+			2.新节点.appendTo("父节点")
+	2.添加到此节点内最前：
+			1.父节点.prepend("新节点")
+			2.新节点.prependTo("父节点")
+	3.添加到此节点后：
+			1.此节点.after("新节点")
+			2.新节点.insertAfter("此节点")
+	4.添加到此节点前：
+			1.此节点.before("新节点")
+			2.新节点.insertBefore("此节点")
+
+第八节：自定义插件
+	注意：	1.jquery的插件，定义在jquery.fn的基础上
+		2.命名冲突的解决(用立即执行函数)
+		3.循环jQuery对象的每个元素
+		4.在函数中，将jQuery返回（this）

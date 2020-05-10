@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			* {
+				padding:0;
+				margin:0;
+			}
+
+			.main {
+				width:130px;
+				height:80px;
+				float:left;
+				
+			}
+
+			.main img {
+				width:130px;
+				height:80px;
+			}
+
+			.gaiban {
+				width:130px;
+				height:80px;
+				background: black;
+				opacity:0;
+				position: absolute;
+				top:0;
+				left:0;
+			}
+
+			.float {
+				width:30px;
+				height:30px;
+				background: #f00 ;
+				opacity: 0.4;
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.right {
+				width:300px;
+				height:300px;
+				float:left;
+				margin-left:50px;
+				background: url("./01.jpg");
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				(function($){
+					$.fn.extend({
+						quto : function(){
+							this.each(function(){
+								var that = this;
+								$(".main",this).mousemove(function(evt){
+									var x = evt.offsetX;
+									var y = evt.offsetY;
+
+									x = x - $(".float",this).width()/2;
+									y = y - $(".float",this).height()/2;
+
+									$(".float",this).css({
+										top:y,
+										left:x
+									})
+									$(".right").css({
+										backgroundPosition:x*-10+"px " + y*-10+"px"
+									})
+								}).mouseover(function(){
+									$(".float, .gaiban,.right",that).show();
+								}).mouseout(function(){
+									$(".float, .gaiban,.right",that).hide();
+								})
+							})
+						}
+					})
+				})(jQuery);
+
+				// 调用
+				$(".all").quto();	
+			}
+		</script>
+		<script type="text/javascript" src="../../库/jquery-3.4.1.js"></script>
+		
+	</head>
+	<body>
+		<div class="all">
+			
+			<div class="main">
+				<img src="./small.jpg" alt="">
+				<div class="gaiban"></div>
+				<div class="float"></div>
+			</div>
+			
+		
+		<div class="right"></div>
+		</div>
+	</body>
+</html>

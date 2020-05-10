@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript" src="../../库/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				// $("li").mouseover(function(){	事件
+				// 	$(this).css("backgroundColor","blue");
+				// }).mouseout(function(){		事件
+				// 	$(this).css("backgroundColor","green");
+				// })
+				
+				// $("li").on("mouseover",function(){	on函数事件
+				// 	$(this).css("backgroundColor","blue");
+				// }).on("mouseout",function(){		on函数事件
+				// 	$(this).css("backgroundColor","green");
+				// })
+
+				// $("li:eq(0)").off("mouseover");		取消事件
+
+				$("ul").on("mouseover","li",function(){		/*事件委托，避免后来创建的元素没有事件*/
+					$(this).css("backgroundColor","blue");
+				}).on("mouseout","li",function(){
+					$(this).css("backgroundColor","#fff");
+				})
+
+				for(var i = 0; i < 5; i++){		/*循环添加元素*/
+					$("<li>"+i+"</li>").appendTo("ul");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</body>
+</html>

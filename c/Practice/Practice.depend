@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1583819515 source:d:\doc\c\practice\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1583481886 source:d:\doc\c\practice\one.c
+	<stdio.h>
+
+1583481281 source:d:\doc\c\practice\00if语句.c
+	<stdio.h>
+
+1583481886 source:d:\doc\c\practice\01函数位置.c
+	<stdio.h>
+
+1583562868 source:d:\doc\c\practice\02while.c
+	<stdio.h>
+
+1583561773 source:d:\doc\c\practice\04数组.c
+	<stdio.h>
+
+1583564196 source:d:\doc\c\practice\05指针.c
+

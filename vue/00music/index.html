@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./index.css">
+    </head>
+    <body>
+        <div id='app'><!-- 父容器 -->
+            <header id='header'><!-- 头部标题 -->
+                <h1>播放器</h1>
+                <input type="text" title="搜索" placeholder="搜索" v-model='text00' @keyup.enter='getDatas'>
+            </header>
+            <main id="main"><!-- 中部数据 -->
+                <div id='scroll'>
+                    <div id='divList'><!-- 左边数据列表 -->
+                        <ul>
+                            <li v-for='el in searchList'>
+                                <a href="#" @click='audio(el.id)'>{{el.name}}——{{el.artists[0].name}}</a><!-- 歌曲名 -->
+                                <a href="#" id='mv' @click='video(el.mvid)' v-if='el.mvid != 0'><img src="./img/01.jpg" alt="mv"></a><!-- mv -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id='divPlayer'><!-- 播放界面 -->
+                    <img id='fengmian' :src="img00" v-if='startFengMian' alt="加载失败"><!-- 歌曲封面 -->
+                    <div id='wPingLun'><!-- 伪元素：隐藏滚动条 -->
+                        <h1>评论</h1><!-- 标题 -->
+                        <div id="pingLun"><!-- 评论 -->
+                            <ul>
+                                <!-- 热门评论 -->
+                                <h2 v-if='startFengMian'>热门评论</h2>
+                                <li v-for='el in hotComments' style="border-bottom:1px solid #a0a0a0; margin-top:0.5em">
+                                    <p style="color:#99ff99">{{el.user.nickname}}：</p>
+                                    <p style="font-size: 14px;">{{el.content}}</p>
+                                </li>
+                                <!-- 其他评论 -->
+                                <h2  v-if='startFengMian'>其他评论</h2>
+                                <li v-for='el in otherComments' style="border-bottom:1px solid #a0a0a0; margin-top:0.5em">
+                                    <p style="color:#99ff99">{{el.user.nickname}}：</p>
+                                    <p style="font-size: 14px;">{{el.content}}</p>
+                                </li>
+                                <br>
+                            </ul>                               
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer id="footer"><!-- 播放控制 -->
+                <audio :src="audioUrl" controls='controls' autoplay='autoplay'></audio><!-- 播放器 -->
+            </footer>
+            <div class="shadow" v-show='isShow' ><!-- 遮罩层 -->
+                <video :src="mvUrl" autoplay='autoplay' controls='controls' ></video>
+                <div class="mask" @click='quit'></div>
+            </div>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./index.js"></script>
+</html>

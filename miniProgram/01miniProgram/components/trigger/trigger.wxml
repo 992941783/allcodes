@@ -1,0 +1,3 @@
+<!--components/trigger/trigger.wxml-->
+<button size='mini' bind:tap='increment' data-index='1'>+1</button>
+<button size='mini' bind:tap='decrement'>-1</button>

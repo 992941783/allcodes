@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oA = document.getElementsByTagName("a")[0];
+				var oInput = document.getElementsByTagName('input');
+				oA.oncilck = function(){
+					open("http://www.baidu.com")
+					return false;
+				}
+				oInput[0].onkeydown = function(){
+					alert("无法输入")
+					return false;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<a href="">111</a>
+		<input type = "text" />
+	</body>
+</html>

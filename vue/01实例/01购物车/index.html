@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>书籍名称</th>
+                    <th>出版日期</th>
+                    <th>价格</th>
+                    <th>购买数量</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for='(item,index) in dataList' v-cloak>
+                    <td></td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.date}}</td>
+                    <td>{{item.price | price}}</td>
+                    <td><button @click='d(index)'>-</button>{{item.num}}<button @click='u(index)'>+</button></td>
+                    <td><button @click='removeData(index)'>移除</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <span>{{sumPrice | price}}</span>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>  
+<script>
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            dataList:[
+                {name:'计算机原理',date:'2019-9-10',price:29,num:1},
+                {name:'计算机原理2',date:'2019-9-10',price:29,num:1},
+                {name:'计算机原理3',date:'2019-9-10',price:29,num:1},
+                {name:'计算机原理4',date:'2019-9-10',price:29,num:1},
+                {name:'计算机原理5',date:'2019-9-10',price:29,num:1},
+                {name:'计算机原理6',date:'2019-9-10',price:29,num:1},
+                {name:'计算机原理7',date:'2019-9-10',price:29,num:1},
+            ]
+        },
+        methods: {
+            /* 移除数据 */
+            removeData (index){
+                this.dataList.splice(index,1)
+            },
+            /* num++ */
+            u (index) {
+                this.dataList[index].num++
+            },
+            /* num-- */
+            d (index) {
+                if(this.dataList[index].num==0)return
+                this.dataList[index].num--
+            }
+        },
+        computed:{
+            /* 计算属性：获取总价格 */
+            sumPrice () {
+                return this.dataList.reduce((prev,n)=>prev+n.price*n.num,0)
+            }
+        },
+        filters:{
+            /* 过滤器 */
+            price (price) {
+                return '￥'+ price.toFixed(2)
+            }
+        }
+    })
+
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+/*			function $(id){
+				return document.getElementById(id);
+			}
+			function num(nu){
+				if(nu < 10){
+					return "0" + nu;
+				}else{
+					return nu;
+				}
+			}
+			window.onload = function(){
+				var con = 0;
+				var timer = 0;
+				$("in1").onclick = function(){
+					con = setInterval(function(){
+						timer++;
+						$("sp3").innerHTML = num(timer % 60);
+						$("sp2").innerHTML = num(parseInt(timer / 60) % 60);
+						$("sp1").innerHTML = num(parse(timer / 3600));
+					},1000)
+				}
+				$("in2").onclick = function(){
+					clearInterval(con);
+				}
+				$("in3").onclick = function(){
+					clearInterval(con);
+					$("sp3").innerHTML = "00";
+					$("sp2").innerHTML = "00";
+					$("sp1").innerHTML = "00";
+				}
+			}*/
+
+
+			function bd(id){
+				return document.getElementById(id);
+			}
+			function num(num){
+				if(num < 10){
+					return "0" + num;
+				}else{
+					return num;
+				}
+			}
+			window.onload = function(){
+				var con = 0, timer = 0;
+				bd("in1").onclick = function(){
+					timer = setInterval(function(){
+						con++;
+						bd("sp3").innerHTML = num(con % 60);
+						bd("sp2").innerHTML = num(parseInt(con / 60) % 60);
+						bd("sp1").innerHTML = num(parseInt(con / 3600));
+					}, 1);
+				}
+				bd("in2").onclick = function(){
+					clearInterval(timer);
+				}
+				bd("in3").onclick = function(){
+					clearInterval(timer);
+					bd("sp3").innerHTML = "00";
+					bd("sp2").innerHTML = "00";
+					bd("sp1").innerHTML = "00";
+				}
+			}
+
+			// alert(parseInt('1.9'));
+
+		</script>
+		<style type="text/css">
+			.div-1 {width:300px; height:400px; background:#f00; margin:0 auto; }
+				.div-2 {margin:0 auto; padding-left:10%; position:relative; top:100px; font-size:60px; color:#af00ca;}
+				.div-3 {position:relative; top:200px; padding-left:15%;}
+					.div-3 input {width:70px; height:40px; background:#e0acf0}
+		</style>
+	</head>
+	<body>
+		<div class = "div-1">
+			<div class = "div-2">
+				<span id = "sp1">00</span>:
+				<span id = "sp2">00</span>:
+				<span id = "sp3">00</span>
+			</div>
+			<div class = "div-3">
+				<input type = "button" id = "in1" value = "开始">
+				<input type = "button" id = "in2" value = "暂停">
+				<input type = "button" id = "in3" value = "结束">
+			</div>
+		</div>
+	</body>
+</html>

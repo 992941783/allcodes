@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			div {
+				width:300px;
+				height:300px;
+			}
+		</style>
+		<script type="text/javascript" src="../../库/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				(function($){	/*立即执行函数，防止变量冲突*/
+					$.fn.extend({	/*在此方法中定义方法*/
+						randomcolor : function(){	/*函数名：函数体*/
+							function col(){
+								var x = Math.floor(Math.random()*256);
+								var y = Math.floor(Math.random()*256);
+								var z = Math.floor(Math.random()*256);
+								return 'rgb('+x+','+y+','+z+')';
+							}
+
+							this.each(function(index){	/*循环遍历*/
+								$(this).css("background",col())
+							})
+							return this;	/*为了链式调用，返回值*/
+						}
+					})
+				})(jQuery);
+
+				$("div").randomcolor();
+			}
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+	</body>
+</html

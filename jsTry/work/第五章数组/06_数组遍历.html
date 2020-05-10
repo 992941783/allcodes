@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+			var xc = [];
+			for(var i = 0; i < 10; i++){
+				xc[i] = Math.random();
+			}
+
+			var xc = [1, 2, 3, 4, 5];	//定义数组。
+			for(var i in xc){	//for循环，取出数组的每个元素，i不是数组元素，而是所在数组的下标。
+				xc[i] = "hello";	//赋值为“hello”。
+				document.write(xc[i] + "<br />")  //页面输出。
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

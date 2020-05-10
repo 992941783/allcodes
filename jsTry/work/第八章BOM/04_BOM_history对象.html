@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type = "text/javascript">
+		function bd(id){
+			return document.getElementById(id);
+		}
+		window.onload = function(){
+			bd("btn1").onclick = function(){//记录
+				alert(history.length);
+			}
+			bd("btn2").onclick = function(){//前进
+				history.forward();
+			}
+			bd("btn3").onclick = function(){//后退
+				history.back();
+			}
+			bd("btn4").onclick = function(){
+				history.go(2);
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<input type="button" value = "记录" id = "btn1" />
+		<input type="button" value = "前进" id = "btn2" />
+		<input type="button" value = "后退" id = "btn3" />
+		<input type="button" value = "go" id = "btn4" />
+	</body>
+</html>

@@ -1,0 +1,48 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+    color:black;
+}
+html body {
+    font-size:10px;
+}
+#app {
+    width:55%;
+    margin:0 auto
+}
+    #app #header h1 {
+        font-size: 7em;
+        text-align: center;
+    }
+    #app #header input[type='text'] {
+        width:79%;
+        height:2em;
+        margin:1em auto;
+        display: block;
+    }
+    #app #header div{
+        width:80%;
+        margin:0 auto;
+    }
+    #app #header div a{
+        font-size: 1.5em;
+    }
+
+    #main ul {
+        overflow: hidden;
+        margin:2em auto;
+    }
+        #main ul li{
+            float:left;
+            width:12em;
+            margin-left:2em
+        }
+            #main ul li h1 {
+                text-align: center;
+            }
+            #main ul li p {
+                margin-top:0.5em;
+                text-align: center;
+            }

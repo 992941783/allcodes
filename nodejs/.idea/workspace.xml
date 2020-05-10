@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0c41fdd3-991a-48e7-bef9-f1565bfb54b9" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1TvbKlp2n6WAsYpTqnibT6OOhV9" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.16.1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../vue" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\doc\nodejs\project\chat" />
+      <recent name="D:\doc\nodejs\project\chat\static" />
+      <recent name="E:\nodejs\project\后台管理系统\static\html" />
+      <recent name="E:\nodejs\project\后台管理系统\static\lib\jquery" />
+      <recent name="E:\nodejs\project\后台管理系统\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\doc\nodejs\project" />
+      <recent name="D:\doc\nodejs\project\chat\static" />
+      <recent name="D:\doc\nodejs\project\chat\static\lib" />
+      <recent name="E:\nodejs\project\后台管理系统\static\img" />
+      <recent name="E:\nodejs\project\climb" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.00_test.html">
+    <configuration name="00_test.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/nodejs/express_server/00_test.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="00_test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/express_server/00_test.js" working-dir="$PROJECT_DIR$/express_server">
+      <method v="2" />
+    </configuration>
+    <configuration name="回调实验.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/callback/回调实验.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.00_test.html" />
+        <item itemvalue="Node.js.00_test.js" />
+        <item itemvalue="Node.js.回调实验.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0c41fdd3-991a-48e7-bef9-f1565bfb54b9" name="Default Changelist" comment="" />
+      <created>1574343454461</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574343454461</updated>
+      <workItem from="1574343457602" duration="4782000" />
+      <workItem from="1574395772687" duration="2484000" />
+      <workItem from="1574432984974" duration="3788000" />
+      <workItem from="1574517412610" duration="3644000" />
+      <workItem from="1574591525834" duration="3043000" />
+      <workItem from="1574595035303" duration="49000" />
+      <workItem from="1574656721310" duration="12740000" />
+      <workItem from="1574689070364" duration="3728000" />
+      <workItem from="1574742539033" duration="3758000" />
+      <workItem from="1574746397724" duration="5346000" />
+      <workItem from="1574829171734" duration="7066000" />
+      <workItem from="1574861202264" duration="4903000" />
+      <workItem from="1574915112111" duration="18231000" />
+      <workItem from="1575002613979" duration="4927000" />
+      <workItem from="1575208042040" duration="3050000" />
+      <workItem from="1575262306766" duration="3407000" />
+      <workItem from="1575275340072" duration="8396000" />
+      <workItem from="1575349722086" duration="5848000" />
+      <workItem from="1575606970048" duration="1468000" />
+      <workItem from="1575633717875" duration="4461000" />
+      <workItem from="1575866214532" duration="751000" />
+      <workItem from="1575867885647" duration="9739000" />
+      <workItem from="1575952748734" duration="9206000" />
+      <workItem from="1576057962394" duration="8466000" />
+      <workItem from="1576394015508" duration="5711000" />
+      <workItem from="1576417386058" duration="2973000" />
+      <workItem from="1576470739861" duration="9416000" />
+      <workItem from="1576575294387" duration="15288000" />
+      <workItem from="1576729583036" duration="16167000" />
+      <workItem from="1577077662131" duration="10475000" />
+      <workItem from="1577108626039" duration="17178000" />
+      <workItem from="1577248197622" duration="2042000" />
+      <workItem from="1577266906583" duration="36890000" />
+      <workItem from="1577448959286" duration="5091000" />
+      <workItem from="1582610860333" duration="546000" />
+      <workItem from="1582611478289" duration="11893000" />
+      <workItem from="1582693667923" duration="15033000" />
+      <workItem from="1582774947992" duration="737000" />
+      <workItem from="1582775729667" duration="6007000" />
+      <workItem from="1582855148148" duration="24563000" />
+      <workItem from="1582939598309" duration="2686000" />
+      <workItem from="1582948741296" duration="2513000" />
+      <workItem from="1582957341762" duration="5415000" />
+      <workItem from="1583024310802" duration="39930000" />
+      <workItem from="1583117227758" duration="9794000" />
+      <workItem from="1583130788108" duration="7222000" />
+      <workItem from="1583144375467" duration="5938000" />
+      <workItem from="1583163519232" duration="1372000" />
+      <workItem from="1583199875637" duration="10455000" />
+      <workItem from="1583291495669" duration="3697000" />
+      <workItem from="1583650689243" duration="6234000" />
+      <workItem from="1583740191811" duration="2262000" />
+      <workItem from="1584087428643" duration="1454000" />
+      <workItem from="1584153068479" duration="2791000" />
+      <workItem from="1584170313478" duration="687000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/nowDate/nowDate",
+    "pages/category/category"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "assets/tabBar/home.png",
+        "selectedIconPath": "assets/tabBar/home-active.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "assets/tabBar/type.png",
+        "selectedIconPath": "assets/tabBar/type-active.png"
+      },
+      {
+        "pagePath": "pages/nowDate/nowDate",
+        "text" : "测试",
+        "iconPath" : "assets/tabBar/me.png",
+        "selectedIconPath" : "assets/tabBar/me-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

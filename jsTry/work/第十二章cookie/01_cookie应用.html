@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript" src="../tool.js"></script>
+		<script type="text/javascript">
+			// removecookie("username1")		
+			window.onload = function(){
+				var oInput = document.getElementsByTagName("input");
+				if(getcookie("username")){
+					oInput[0].value = getcookie("username");
+					oInput[1].value = getcookie("password");
+				}
+				oInput[3].onclick = function(){
+					var text = oInput[0].value;
+					var password = oInput[1].value;
+					if(oInput[2].checked){
+						setcookie("username",text,7);
+						setcookie("password",password,7);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+			<p>用户名：<input type = "text" ></p>
+			<p>密码：<input type = "password" ></p>
+			<input type = "checkbox" >七天免登陆<input type = "button" value = "登陆" >
+		</form>
+	</body>
+</html>

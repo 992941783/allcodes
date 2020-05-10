@@ -1,0 +1,47 @@
+<!doctype html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			div {width:500px; height:500px; border:1px #f00 solid}
+		</style>
+		<script type="text/javascript">
+//方案一
+/*			window.onload = function(){
+				var oDiv = document.getElementsByTagName("div")[0];
+				var oInput = document.getElementsByTagName('input');
+				oInput[1].onclick = function(){
+					oDiv.innerHTML += oInput[0].value;
+				}
+				oInput[0].onkeydown = function(e){
+					var sum = e || event;
+					if(sum.ctrlKey && sum.keyCode == 13){
+						oDiv.innerHTML += oInput[0].value;
+					}
+				}
+			}*/
+//方案二
+/*			window.onload = function(){
+				var oDiv = document.getElementsByTagName('div')[0];
+				var oInput = document.getElementsByTagName('input');
+				function som(){
+					oDiv.innerHTML += oInput[0].value;
+					oInput[0].value = "";
+				}
+				oInput[1].onclick = som();
+				oInput[0].onkeydown = function(e){
+					var sum = e || evevt;
+					if(sum.ctrlKey || sum.keyCode == 13){
+						som();
+						oInput[0].value = "";
+					}
+				}
+			}*/
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<input type = "text" /><input type = "button" value = "按钮">
+	</body>
+</html>

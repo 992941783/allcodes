@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+		window.onload = function(){
+			var body = document.getElementsByTagName("body")[0];
+			var lis = [1,2,3,4,5,9];
+			var html = "";
+			for(var i in lis){
+				html += `
+					<ul>
+						<li>${lis[i]}</li>
+					</ul>
+				`
+			}
+			body.innerHTML = html;
+		}
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

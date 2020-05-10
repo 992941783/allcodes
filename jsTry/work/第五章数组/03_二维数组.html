@@ -1,0 +1,29 @@
+<!doctype html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+			var con = 0;	//初始化变量。
+			var sum = [];	//定义一个空数组。
+			for(var i = 0; i < 5; i++){		//for循环。
+				var som = [];	//定义空数组。
+				for(var j = 0; j < 5; j++){		//for循环。
+					som.push(++con);	//som数组尾部每次添加con+1。
+				}
+				sum.push(som);	//sum数组尾部添加som数组。
+			}
+
+
+			for(var j = 0; j < sum.length; j++){	//for循环。
+				for(var k = 0; k <= j; k++){	//for循环。
+					document.write(sum[j][k],"&nbsp&nbsp");		//页面输出。
+				}
+				document.write("<br />");	//页面输出。
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

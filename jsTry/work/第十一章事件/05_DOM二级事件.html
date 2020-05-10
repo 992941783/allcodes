@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			#div1 {
+				width:200px; 
+				height:200px; 
+				background: #f00
+			}
+				#div1 div {
+					width:100px;
+					height:100px;
+					background: #000;
+				}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oDiv1 = document.getElementById("div1");
+				var oDiv2 = oDiv1.getElementsByTagName('div')[0];
+			/*	oDiv1.addEventListener("click",baa,true);	
+				// oDiv1.addEventListener("click",bab,true);
+				oDiv2.addEventListener("click",bab,true)*/
+				// oDiv2.attachEvent("onclick",baa);
+				addeventCom(oDiv1,"click",baa);
+			}
+
+			function baa(){
+				console.log("never1");
+			}
+			function bab(){
+				console.log("nover2");
+			}
+//封装
+			function addeventCom(obj,evt,fun){
+				if(obj.attachEvent){
+					obj.attachEvent("on"+evt,fun);
+				}else{
+					obj.addEventListener(evt,fun,false);
+				}
+			}
+			function removeEventCom(obj,evt,fun){
+				if(obj.detachEvent){
+					obj.detachEvent("on"+evt,fun);
+				}else{
+					obj.removeEventListener(evt,fun);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id = "div1">
+			<div></div>
+		</div>
+	</body>
+</html>

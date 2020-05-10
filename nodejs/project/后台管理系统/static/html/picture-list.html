@@ -1,0 +1,259 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="../lib/html5shiv.js"></script>
+<script type="text/javascript" src="../lib/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="../static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="../static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="../lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="../static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="../static/h-ui.admin/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="../lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>菜品列表</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 菜品管理 <span class="c-gray en">&gt;</span> 菜品列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+	<div class="cl pd-5 bg-1 bk-gray mt-20">
+		<span class="l"><a href="javascript:;" onclick="food_delMany()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+			<a class="btn btn-primary radius" onclick="food_add('添加菜品','food-add.html')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加菜品</a>
+		</span>
+		<span class="r" id="allDataLength">共有数据：<strong>54</strong> 条</span>
+	</div>
+	<div class="mt-20">
+		<table class="table table-border table-bordered table-bg table-hover table-sort">
+			<thead>
+				<tr class="text-c">
+					<th width="40"><input name="" type="checkbox" value=""></th>
+					<th width="80">ID</th>
+					<th width="100">菜名</th>
+					<th width="100">分类</th>
+					<th>价格</th>
+					<th width="150">描述</th>
+					<th width="150">评价</th>
+					<th width="100">图片</th>
+					<th width="100">操作</th>
+				</tr>
+			</thead>
+			<tbody id="dat">
+				<span><!--分页查找-->
+					<span>分页查找：<button id="first" onclick="getDataByPages(this.id)">首页</button></span><!--首页-->
+					<span><button id="prev" onclick="getDataByPages(this.id)">prev</button></span><!--上一页-->
+					<span id="text00">0/0</span><!--显示-->
+					<span><!--跳转-->
+						<input type="text" id="textGo" style="width:20px">
+						<button id="go" onclick="getDataByPages(this.id)">go</button>
+					</span>
+					<span><button id="next" onclick="getDataByPages(this.id)">next</button></span><!--下一页-->
+					<span><button id="last" onclick="getDataByPages(this.id)">尾页</button></span><!--尾页-->
+				</span>
+				<span style="position:relative;left:40px">分类查找：<!--分类查找-->
+					<select onchange="getDataByClass($('select').val())">
+						<option>凉菜</option>
+						<option>热菜</option>
+						<option>酒水</option>
+					</select>
+				</span>
+				<span id="getDataByKw" style="position:relative;left:100px"><!--模糊查找-->
+					模糊查找：
+					<input type="text" onchange="getDataByKw($('#getDataByKw input').val())">
+				</span>
+
+
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="../lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="../lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="../static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="../static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="../lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="../lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript">
+
+let allDataLength = 0;//总数据
+let allPageLength = 0;//总页数
+let nowPage = 0;//当前页数
+
+/*分页查询数据*/
+function getDataByPage(page,pageSize){
+	//获取数据
+	$.post('http://localhost:3000/food/getDataByPage',{page,pageSize},(data)=>{
+		if(data.err == 0){//获取成功
+			allDataLength = data.info.allDataLength//数据总数量
+			allPageLength = data.info.allPageLength//数据总页数
+			nowPage = page;//当前页数
+			$('#text00').html(`${page}/${allPageLength}`);$('#allDataLength Strong').html(allDataLength)//改变对应显示文本
+			renderData(data.info.data)//渲染数据
+		}else{
+            alert('获取失败')
+		}
+	})
+}
+/*渲染数据*/
+function renderData(data){//参数为数组
+    let sum = '';//存放累加的数据
+    for(let i=0; i<data.length; i++){
+        let tr = `
+        <tr class="text-c">
+            <td><input name="" type="checkbox" value="" class="check"></td>
+            <td>${i+1}</td>
+            <td>${data[i].name}</td>
+            <td>${data[i].fenlei}</td>
+            <td width="40	">${data[i].price}</td>
+            <td class="text-c">${data[i].doc}</td>
+            <td>${data[i].pingjia}</td>
+            <td class="td-status"><a href='http://localhost:3000/${data[i].img}'><img src="http://localhost:3000/${data[i].img}" alt="加载失败" style='width:100px; height:60px'></a></td>
+            <td class="td-manage">
+            	<a style="text-decoration:none" class="ml-5" onClick="food_edit('菜品编辑','food-edit.html','${data[i].name}')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
+            	<a style="text-decoration:none" class="ml-5" onClick="food_del(this,'${data[i].name}')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+            </td>
+        </tr>`
+        sum += tr;//累加
+	}
+    $('#dat').html(sum)
+}
+/*分页查询汇总:上一页、下一页、首页，尾页，跳转*/
+function getDataByPages(type){
+	let page = nowPage;
+	let pageSize = '5';
+	switch (type) {
+		case 'first'://首页
+			page = 1;
+			pageSize = 5;
+			break;
+		case 'prev'://上一页
+			if(page == '1'){//已在首页，无需跳转
+				// alert('已经是第一页');
+			}else{//可以跳转
+				page -= 1;
+				pageSize = 5;
+			}
+			break;
+		case 'go'://跳转
+			if(page == $('#textGo').val()){ //无需跳转
+				alert('已在此界面');
+			}else{//可以跳转
+				page = $('#textGo').val();
+				pageSize = 5;
+			}
+			break;
+		case 'next'://下一页
+			if(page == allPageLength){//已在尾页，无需跳转
+				// alert('已经是最后一页')
+			}else{//不在尾页，可以跳转
+				page = Number(page) + 1;
+				pageSize = 5
+			}
+			break;
+		case 'last'://尾页
+			page = allPageLength;
+			pageSize = 5;
+			break;
+		default://其他
+			alert('分页汇总参数错误');
+	}
+	getDataByPage(page,pageSize)
+}
+/*菜品-添加*/
+function food_add(title,url){
+	var index = layer.open({
+		type: 2,
+		title: title,
+		content: url
+	});
+	layer.full(index);
+}
+/*菜品-修改*/
+function food_edit(title,url,name){
+	localStorage.setItem('name',name);//将要修改的数name存入缓存
+	var index = layer.open({//打开url
+		type: 2,
+		title: title,
+		content: url
+	});
+	layer.full(index);
+}
+/*菜品-删除*/
+function food_del(obj,name){
+	layer.confirm('确认要删除吗？',function(index){
+		$.ajax({
+			type: 'POST',
+			url: 'http://localhost:3000/food/del',
+			data:{name},
+			dataType: 'json',
+			success: function(data){
+				if(data.err == 0){//删除成功
+					getDataByPage(1,5)
+					layer.msg('已删除!',{icon:1,time:1000});//弹出图标(已删除)
+				}
+			},
+			error:function(data) {
+				console.log(data.why);
+			},
+		});		
+	});
+}
+/*菜品-批量删除*/
+function food_delMany() {
+	let name = '';//name
+	for (let i = 0; i < $('.check').length; i++) {
+		if ($('.check')[i].checked) {//选中
+			name = $('.check')[i].parentNode.nextElementSibling.nextElementSibling.innerHTML;//获取到复选框选中的数据name
+			$.post('http://localhost:3000/food/del', {name}, (data) => {//删除
+				if (data.err == 0) {//删除成功
+					layer.msg('删除成功!', {icon: 1, time: 1000})//弹框：删除成功
+					getDataByPage(1, 5)
+				} else {//删除失败
+					layer.msg('删除失败!', {icon: 1, time: 1000})//弹框：删除失败
+				}
+			})
+		}
+	}
+}
+/*分类查询*/
+function getDataByClass(word){
+	console.log(word)
+	$.post('http://localhost:3000/food/getDataByClass',{word},(data)=>{
+		if(data.err==0){//查询成功:有数据
+			renderData(data.data)
+		}else if(data.err==1){//查询成功:无数据
+			alert('没有此类数据')
+		}else{
+			alert('查询错误，稍后重试')
+		}
+	})
+}
+/*关键字查询*/
+function getDataByKw(word){
+	$.post('http://localhost:3000/food/getDataByKw',{word},(data)=>{
+		if(data.err==0){//查询成功：有数据
+			renderData(data.data)
+		}else if(data.err==1){//查询成功：无数据
+			alert('无此数据')
+		}else{
+			alert('查询失败，稍后重试')
+		}
+	})
+}
+
+getDataByPage(1,5)//分页获取数据，初始化数据
+</script>
+</body>
+</html>

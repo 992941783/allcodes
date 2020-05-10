@@ -1,0 +1,25 @@
+*{
+	margin:0;
+	padding:0;
+	list-style: none;
+}
+
+html,body {
+	height:100%;
+	width:100%;
+}
+
+.header ul {
+	height:6%;;
+	width:40%;
+	border:1px solid #f00;
+	position: absolute;
+	right:0%;
+	
+}
+
+.header ul li {
+	float:left;
+	margin-right:3%;
+	text-transform: tr
+}

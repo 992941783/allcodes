@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript" src="./库/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				// 根据请求内容不同，返回不同。
+				$("input[type=text]").focus();	//获取焦点
+				$("div.div_1").append("<tr><td>姓名</td><td>外号</td><td>年龄</td></tr>"); //创建头
+				$("input[type=button]").click(function(){		//点击事件
+					$.ajax({		//发送请求
+						type:"get",
+						url:"./PHP/hello_world.php",
+						data:{
+							net:$("input[type=text]").val()
+						}
+					}).done(function(resp){		//回调函数
+						var all = resp.split("|", 3);	//分割字符串，处理
+						$("div.div_1").append("<tr><td>"+all[0]+"</td><td>"+all[1]+"</td><td>"+all[2]+"</td></tr>");	//动态添加
+					})
+				}).keydown(function(event){		//键盘事件
+					alert(event.keyCode);
+					if(event.keyCode == 32 || event.keyCode == 13){
+						get();
+					}
+				})
+
+				//定义函数
+
+				function get () {
+					$.ajax({		//发送请求
+						type:"get",
+						url:"./PHP/hello_world.php",
+						data:{
+							net:$("input[type=text]").val()
+						}
+					}).done(function(resp){		//回调函数
+						var all = resp.split("|", 3);	//分割字符串，处理
+						$("div.div_1").append("<tr><td>"+all[0]+"</td><td>"+all[1]+"</td><td>"+all[2]+"</td></tr>");	//动态添加
+					})
+				}
+			}
+		</script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin:0;
+				list-style: none;
+			}
+
+			html,body {
+				height:100%;
+			}
+
+			.div_1 tr td {
+				background-color: #696969;
+				opacity: 0.5;
+				border: 1px #000 solid;
+				width:7%;
+				height:4%;
+				color:#000;
+				text-align: center;
+
+			}
+
+			.div_1 {
+				width:40%;
+				height:100%;
+				margin:0 auto;
+			}
+
+			.div_1 input:nth-child(1) {
+				/*display: block;*/
+				width:60%;
+				height:10%;
+				font-size: 24px;
+			}
+
+			.div_1 input:nth-child(2) {
+				height: 12%;
+				width:20%;
+				background-color: blue;
+			}
+
+			.div_1 input {
+				margin-bottom: 6%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div_1">
+			<input type="text" ><input type="button" value="提交">
+		
+		</div>
+	</body>
+</html>

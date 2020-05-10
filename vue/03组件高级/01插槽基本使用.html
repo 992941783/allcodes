@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='app'>
+    <a1><i>d</i></a1>
+    <a1></a1>
+    <a1></a1>
+  </div>
+
+  <template id='a1'>
+    <div>
+      <slot><button>按钮</button></slot>
+    </div>
+  </template>
+
+  <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+
+      },
+      methods: {
+
+      },
+      computed: {
+
+      },
+      filters: {
+
+      },
+      components:{
+        a1:{
+          template:'#a1',
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+			/*function* a(x){
+				yield x + 1;
+				yield x + 2;
+				return x + 3;
+			}
+			var b = a(1);
+			console.log(b);
+			console.log(b.next(),b.next(),b.next());*/
+			function* a(n){
+				let a = 0;
+				let b = 1;
+				for(let i = 0; i < n; i++){
+					yield a;
+					let tmp = a + b;
+					a = b;
+					b = tmp
+				}
+			}
+			var b = a(10);
+			for(let i of b){
+				console.log(i);
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

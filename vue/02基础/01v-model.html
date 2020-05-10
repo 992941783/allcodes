@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <form action="#" id='app'>
+        <label for="man">
+            <input type="radio" name='sex' id="man" v-model='radio1' value="男">男
+        </label>
+        <label for="women">
+            <input type="radio" name='sex' id='women' v-model='radio1' value='女'>女
+        </label>
+        <span>{{radio1}}</span>
+
+        <label for="_1">
+            <input type="checkbox" id="_1" v-model='checkbox' value='篮球'>篮球
+        </label>
+        <label for="_2">
+            <input type="checkbox" id="_2" v-model='checkbox' value='足球'>足球
+        </label>
+        <label for="_3">
+            <input type="checkbox" id="_3" v-model='checkbox' value='乒乓球'>乒乓球
+        </label>
+        <span>{{checkbox}}</span>
+    </form>
+</body>
+<script>
+    const vm = new Vue({
+    el:'#app',
+    data:{
+        radio1:'男',
+        checkbox:[]
+    },
+    methods: {
+    
+    },
+    computed:{
+    
+    },
+    filters:{
+    
+    }
+    })    
+</script>
+</html>

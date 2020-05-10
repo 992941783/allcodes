@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+		//数组遍历
+		// var lis = [1,2,3,8,6,9,19];
+		// function bl(num){
+		// 	for(var i = 0; i < num.length; i++){
+		// 		alert(num[i]);
+		// 	}
+		// }
+		// bl(lis);
+
+		// function bl2(num){
+		// 	for(var i = 0; i < num.length; i++){
+		// 		 alert(num[i]);
+		// 	}
+		// }
+		// bl2(lis);
+
+		//数组方法
+		// lis.push(1);
+		// lis.pop();
+		// lis.shift();//头部删除
+		// lis.unshift(100);//头部添加
+
+		//其他方法
+		// var lis1 = [1,2,3,4,5,6];//concat合并方法，原数组不改变，合并成新数组。
+		// var lis2 = [7,8,9,10,11];
+		// alert(lis1.concat(lis2));
+		// alert(lis2);
+		// alert(lis1.slice(0,1));//slice方法，截取数组指定区域，生成新数组。
+		// lis1.splice(0,1);//删除
+		// alert(lis1);	
+		// lis1.splice(0,0,200);//插入
+		// alert(lis1)
+		// lis1.splice(0,1,100);//替换
+		// alert(lis1);
+		// alert(lis1.join('+'));//拼接
+
+		//系统排序
+		var lis3 = [1,2,3,4];
+		// lis3.reverse();
+		// alert(lis3);
+		// lis3.sort();
+		// alert(lis3);
+
+		//冒泡排序
+		var lis4 = [1,5,29,45,55,90];
+		function bubb(lis){
+			for(var i = 0; i < lis.length - 1; i++){
+				for(var j = 0; j < lis.length - 1; j++){
+					if(lis[j] > lis[j + 1]){
+						var tmp = lis[j];
+						lis[j + 1] = tmp;
+						lis[j] = lis[j + 1];
+
+					}
+				}
+			}
+			alert(lis);
+		}
+		bubb(lis4);
+		
+
+
+
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

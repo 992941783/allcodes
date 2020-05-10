@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript" src = "../tool.js"></script>
+		<script type="text/javascript">
+/*			var lis = [9,1,2,3,4,8];
+			alert(lis);
+			choose(lis);
+			alert(lis);*/
+			window.onload = function(){
+		/*		var oA1 = document.getElementById("a1");
+				alert(elementsByClassName(oA1, "c1").length);
+				alert(elementsByClassName(oA1, "c1")[0].)
+				// alert(styleAnd(oA1, "width"));
+				removeSpace(oA1);
+				alert(nodePack("div")[0].attributes["id"].nodeName);*/
+				var oA1 = document.getElementById("a1");
+				var oA2 = document.getElementById("a2");
+				oA1.onclick = function(){
+					var b1 = creater("a", "文本内容");
+					oA2.appendChild(b1);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id = "a2">
+			<a href="" class = "c1"></a>
+			<a href="" class = "c1"></a>
+			<a href="" name = "n1"></a>
+		</div>
+		<input type = "button" id = "a1" value = "按钮" >
+
+	</body>
+</html>

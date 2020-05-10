@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript" src="../../库/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){	/*最后执行此代码块*/
+				$("button:first").click(function(){	/*点击事件*/
+					$("div").show(3000);	/*显示，3000ms*/
+					$("div").fadeIn(3000);	/*更改透明度显示，3000ms*/
+					$("div").slideDown(3000);	/*类似窗帘效果，3000ms*/
+					$("div").animate({	/*自定义效果*/
+						width:500,	/*设宽*/
+					},3000).animate({	/*3000ms*/
+						height:500	/*高*/
+					},3000);	/*300ms*/
+				})
+
+				$("button:eq(1)").click(function(){	/*第二个button按钮点击事件*/
+					$("div").hide(3000);	/*隐藏，速度3000*/
+					$("div").fadeOut(3000);	/*透明度隐藏*/
+					$("div").slideUp(3000);	/*拉上窗帘，隐藏*/
+					$("div").animate({	/*自定义*/
+						height:200,
+					},3000).animate({
+						width:200,
+					},3000);
+				})
+
+				$("button:last").click(function(){
+					$("div").stop(true);	/*暂停动画，为true时暂停全部动画*/
+				})
+			}
+		</script>
+		<style type="text/css">
+			div {
+				width:200px;
+				height:200px;
+				background-color: #f00;
+			}
+		</style>
+	</head>
+	<body>
+		<button>显示</button>
+		<button>隐藏</button>
+		<button>停止</button>
+		<div></div>
+	</body>
+</html>

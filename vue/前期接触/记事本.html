@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+            * {
+                margin:0;
+                padding:0;
+                list-style: none;
+                text-decoration: none;
+            }
+            html body {
+                font-size: 10px;
+            }
+                #all {
+                    margin:30px auto;
+                    width:400px;
+                }
+                    #all header {
+                        font-size: 1em;
+                    }
+                        input[type='text'] {
+                            width:396px;
+                            height:40px
+                        }
+                        #all header h1 {
+                            font-size: 6em;
+                            text-align: center;
+                        }
+                    #all main {
+                        font-size: 1em;
+                    }
+                        #all main ul li {
+                            width:100%;
+                            text-align: center;
+                            font-size:3em;
+                            margin-top:1em;   
+                        }
+                        #all main ul li span {
+                            display: none;
+                            
+                        }
+                    #all footer {
+                        font-size: 1em;
+                    }
+        </style>
+    </head>
+    <body>
+        <div id='all'><!-- all -->
+            <header>
+                <h1>记事本</h1>
+                <input type="text" v-model='text00' @keyup.enter='add'>
+            </header>
+            <main>
+                <ul>
+                    <li v-for='el,index in list' @mouseover='mouse00' @mouseout='mouse01'>{{el}}<span >删除</span></li>
+                </ul>
+                <footer>
+                    <span>{{list.length}}</span>
+                </footer>
+            </main>
+            <footer>
+                <img src="" alt="显示错误">
+            </footer>
+        </div>
+    </body>
+    <script>
+        let vm = new Vue({
+            el:'#all',
+            data:{
+                list:[],
+                text00:'',
+            },
+            methods:{
+                add:function(){
+                    this.list.push(this.text00)
+                },
+                mouse00:function(){
+                    // document.getElementsByTagName('span')[0].style.display ="inline"
+                   
+                },
+                mouse01:function(){
+                    // document.getElementsByTagName('span')[0].style.display ="none"
+                    
+
+                }
+            },
+        })
+        document.getElementsByTagName('input')[0].focus()
+    </script>
+</html>

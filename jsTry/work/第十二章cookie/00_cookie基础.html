@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+		/*	document.cookie = "username=1";//增
+			document.cookie = "username=2";//改
+			var oDate = new Date;
+			oDate.setDate(oDate.getDate()-1);
+			document.cookie = "username=3;expires="+oDate;//删
+			console.log(document.cookie)*/;
+
+			//封装
+			function setcookie(name,value,date){
+				var oDate = new Date;
+				oDate.setDate(oDate.getDate()+date);
+				document.cookie = name + "=" + value + ";expires=" + oDate;
+			}
+			function getcookie(name){
+				var str = document.cookie;
+				var lis1 = str.split("; ");
+				for(var i = 0; i < lis1.length; i++){
+					var lis2 = lis1[i].split("=");
+					if(lis2[0] == name){
+						return lis2[1];
+					}
+				}
+			}
+			function removecookie(name){
+				var oDate = new Date;
+				oDate.setDate(oDate.getDate()-1);
+				var vae = getcookie(name);
+				document.cookie = name + "=" + vae + ";expires=" + oDate;
+			}
+			// setcookie("username","2",2);
+			// setcookie("username1","3",2);
+			// console.log(getcookie("username1"));
+			removecookie("name+");
+			removecookie("name")
+			removecookie("username1")
+			removecookie("{ebe2fdec-771d-47ad-8fa1-db6a13afdab6}")
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

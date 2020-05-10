@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+		//search查找键值对
+			function getValue(search, id){
+				var start = search.indexOf(id);
+				if(start == -1){
+					return "不存在";
+				}else{
+					var end = search.indexOf("&", start);
+					if(end == -1){
+						end = search.length;
+					}
+				}
+				var x = search.substring(start, end);
+				var y = x.split("=", 2);
+				// alert(y[1]);
+				return y[1];
+			}
+			var search = "?id=5&search=ok";
+			alert(getValue(search, "1"));
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,13 @@
+<!--pages/index/index.wxml-->
+<!-- <button open-type='getUserInfo' bindgetuserinfo='getUserInfo'>获取信息</button> -->
+<view>
+  城市：<input type="text" model:value="{{city}}" bindtap='click2'></input>
+  <button bindtap="click1" size='min'>查询</button>
+</view>
+<view class='weathers' wx:for="{{weathers}}" wx:key='index'>
+  <text class='weathersText'>{{item.data}}</text>
+  <text class='weathersText'>{{item.type}}</text>
+  <text class='weathersText'>{{item.low}}</text>-
+  <text class='weathersText'>{{item.high}}</text>
+  <text class='weathersText'>{{item.fengli}}</text>
+</view>

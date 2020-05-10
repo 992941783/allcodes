@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <div id='app'>
+        <a1></a1>
+        <button @click='click1'>显示</button>
+    </div>
+    
+    <template id='a1'>
+        <div>
+            test
+        </div>
+    </template>
+
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+    
+            },
+            methods: {
+                click1(){
+                    console.log(this.$children[0].message)
+                }
+            },
+            computed:{
+    
+            },
+            filters:{
+    
+            },
+            components:{
+                a1:{
+                    template:'#a1',
+                    data(){
+                        return {
+                            message:0
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

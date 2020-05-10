@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript" src="../../库/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){	/*最后执行*/
+				var li1 = $("li:eq(1)");	/*将此节点赋值*/
+				li1.children().css({	/*取得此节点的子节点*/
+					fontSize:"20px"		/*设置css*/
+				});
+
+				li1.parent().css({		/*取得此节点的父节点*/
+					background:"#f00"	/*设置css*/
+				})
+
+				$("#two").find("p.vip").css("background","blue");	/*取得节点的所有子节点，参数为选择器*/
+
+				li1.parents("#one").append("<h1>新标签</h1>");		/*取得节点的所有父节点，参数为选择器*/
+
+				li1.prev().css({	/*取得节点同级的上一个节点*/
+					fontSize:"50px",	/*设置css*/
+					background:"black",	
+					color:"#fff"
+				})
+
+				li1.next().css({	/*取得节点同级的下一个节点*/
+					fontSize:"50px",
+					color:"#fff"
+				})
+
+				li1.siblings().css({	/*取得节点所有兄弟节点*/
+					fontSize:"100px"
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="one">
+			<ul id="two">
+				<li class="oli">
+					<p>1</p>
+				</li>
+				<li class="oli">
+					<p>2</p>
+				</li>
+				<li class="oli">
+					<p class="vip">3</p>
+				</li>
+				<li class="oli">
+					<p>4</p>
+				</li>
+				<li class="oli">
+					<p>5</p>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

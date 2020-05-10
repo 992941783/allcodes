@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+		//获取当前时间
+			function dat(){
+				var a = new Date();
+				var year = a.getFullYear();
+				var month = a.getMonth() + 1;
+				var date = a.getDate();
+				var week = a.getDay();
+				if(week == 0){
+					week = "日";
+				}
+				var hour = a.getHours();
+				var min = a.getMinutes();
+				var sec = a.getSeconds();
+				return year + "年" + month + "月" + date + "日" + "星期" + week + " " + hour + "时" + min +"分" + sec + "秒";	
+			}
+			alert(dat());
+		//获取n天后的时间 1
+			function numOfDat(n){
+				var a = new Date();
+				var year = a.getFullYear();
+				var month = a.getMonth() + 1;
+				var date = a.getDate() +n;
+				var week = a.getDay();
+				if(week == 0){
+					week = "日";
+				}
+				var hour = a.getHours();
+				var min = a.getMinutes();
+				var sec = a.getSeconds();
+				return year + "年" + month + "月" + date + "日" + "星期" + week + " " + hour + "时" + min +"分" + sec + "秒";	
+			}
+			alert(numOfDat(2));
+		//获取n天后的时间
+			function numDate(n){
+				var a = new Date();
+				var date = a.getDate();
+				a.setDate(date + n);
+				return a;
+			}
+			alert(numDate(2))
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
